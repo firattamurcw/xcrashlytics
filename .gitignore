@@ -1,0 +1,46 @@
+# Swift / SwiftPM
+.build/
+.swiftpm/
+Packages/
+# Package.resolved IS committed — this repo ships an executable, so locking
+# transitive deps to specific revisions keeps `swift build` reproducible.
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+
+# Xcode
+*.xcuserstate
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Tooling
+.netrc
+.env
+.env.local
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Coverage / profiling
+*.profraw
+*.profdata
+coverage/
+
+# Local logs / caches (per-user, never commit)
+errors.log
+*.log
+.xcrashlytics-cache/

@@ -1,0 +1,947 @@
+Incident Identifier: A75A8BDD-967C-4AFE-B361-3782A0E8B296
+Distributor ID:      com.apple.AppStore
+Hardware Model:      iPhone16,2
+Process:             Clean-Gallery [11353]
+Path:                /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Clean-Gallery
+Identifier:          com.codeway.cleanerplus
+Version:             6.15.0 (934)
+AppStoreTools:       17F41
+AppVariant:          1:iPhone16,2:18
+Code Type:           ARM-64 (Native)
+Role:                Foreground
+Parent Process:      launchd [1]
+Coalition:           com.codeway.cleanerplus [2747]
+
+Date/Time:           2026-05-20 15:54:30.5213 +0100
+Launch Time:         2026-05-20 15:53:14.5553 +0100
+OS Version:          iPhone OS 26.0.1 (23A355)
+Release Type:        User
+Baseband Version:    3.02.03
+Report Version:      104
+
+Exception Type:  EXC_CRASH (SIGABRT)
+Exception Codes: 0x0000000000000000, 0x0000000000000000
+Termination Reason: SIGNAL 6 Abort trap: 6
+Terminating Process: Clean-Gallery [11353]
+
+Triggered by Thread:  41
+
+Last Exception Backtrace:
+0   CoreFoundation                	0x19ef3e8c8 __exceptionPreprocess + 164 (NSException.m:249)
+1   libobjc.A.dylib               	0x19beb57c4 objc_exception_throw + 88 (objc-exception.mm:356)
+2   CoreFoundation                	0x19efda560 couldNotInstantiate + 104 (NSObject.m:63)
+3   libobjc.A.dylib               	0x19be87b88 objc_alloc_init + 36 (NSObject.mm:2155)
+4   Foundation                    	0x19cf3ed64 +[NSJSONSerialization dataWithJSONObject:options:error:] + 92 (NSJSONSerialization.m:3203)
+5   Clean-Gallery                 	0x1031aa93c outlined init with copy of AppDistributor? + 44348
+6   Clean-Gallery                 	0x1031bf558 __copy_helper_block_e8_32s40s48s56s64s72w + 26808
+7   Clean-Gallery                 	0x1031b87e0 outlined init with copy of AppDistributor? + 101344
+8   libdispatch.dylib             	0x1d684aadc _dispatch_call_block_and_release + 32 (init.c:1575)
+9   libdispatch.dylib             	0x1d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+10  libdispatch.dylib             	0x1d6853468 _dispatch_lane_serial_drain + 740 (queue.c:3991)
+11  libdispatch.dylib             	0x1d6853f44 _dispatch_lane_invoke + 388 (queue.c:4082)
+12  libdispatch.dylib             	0x1d685e3ec _dispatch_root_queue_drain_deferred_wlh + 292 (queue.c:7265)
+13  libdispatch.dylib             	0x1d685dce4 _dispatch_workloop_worker_thread + 692 (queue.c:6859)
+14  libsystem_pthread.dylib       	0x1f9cc33b8 _pthread_wqthread + 292 (pthread.c:2696)
+15  libsystem_pthread.dylib       	0x1f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 0:
+0   libsystem_kernel.dylib        	0x0000000247035cd4 mach_msg2_trap + 8 (:-1)
+1   libsystem_kernel.dylib        	0x00000002470392f8 mach_msg2_internal + 76 (mach_msg.c:201)
+2   libsystem_kernel.dylib        	0x0000000247039214 mach_msg_overwrite + 428 (mach_msg.c:0)
+3   libsystem_kernel.dylib        	0x000000024703905c mach_msg + 24 (mach_msg.c:323)
+4   CoreFoundation                	0x000000019eebca08 __CFRunLoopServiceMachPort + 160 (CFRunLoop.c:2650)
+5   CoreFoundation                	0x000000019ee92a20 __CFRunLoopRun + 1188 (CFRunLoop.c:3035)
+6   CoreFoundation                	0x000000019ee91c44 _CFRunLoopRunSpecificWithOptions + 532 (CFRunLoop.c:3462)
+7   GraphicsServices              	0x000000023e282498 GSEventRunModal + 120 (GSEvent.c:2049)
+8   UIKitCore                     	0x00000001a480cddc -[UIApplication _run] + 792 (UIApplication.m:3899)
+9   UIKitCore                     	0x00000001a47b1b0c UIApplicationMain + 336 (UIApplication.m:5574)
+10  Clean-Gallery                 	0x0000000102f74a68 main + 64 (AppDelegate.swift:23)
+11  dyld                          	0x000000019bf0ae28 start + 7116 (dyldMain.cpp:1477)
+
+Thread 1 name:
+Thread 1:
+0   libsystem_kernel.dylib        	0x0000000247035cd4 mach_msg2_trap + 8 (:-1)
+1   libsystem_kernel.dylib        	0x00000002470392f8 mach_msg2_internal + 76 (mach_msg.c:201)
+2   libsystem_kernel.dylib        	0x0000000247039214 mach_msg_overwrite + 428 (mach_msg.c:0)
+3   libsystem_kernel.dylib        	0x000000024703905c mach_msg + 24 (mach_msg.c:323)
+4   CoreFoundation                	0x000000019eebca08 __CFRunLoopServiceMachPort + 160 (CFRunLoop.c:2650)
+5   CoreFoundation                	0x000000019ee92a20 __CFRunLoopRun + 1188 (CFRunLoop.c:3035)
+6   CoreFoundation                	0x000000019ee91c44 _CFRunLoopRunSpecificWithOptions + 532 (CFRunLoop.c:3462)
+7   Foundation                    	0x000000019ced8734 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 212 (NSRunLoop.m:375)
+8   Foundation                    	0x000000019ced890c -[NSRunLoop(NSRunLoop) runUntilDate:] + 64 (NSRunLoop.m:422)
+9   UIKitCore                     	0x00000001a47ddfe8 -[UIEventFetcher threadMain] + 408 (UIEventFetcher.m:1333)
+10  Foundation                    	0x000000019c5aad3c __NSThread__start__ + 732 (NSThread.m:997)
+11  libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+12  libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 2:
+0   libsystem_kernel.dylib        	0x000000024703b5d4 __psynch_cvwait + 8 (:-1)
+1   libsystem_pthread.dylib       	0x00000001f9cc4b58 _pthread_cond_wait + 984 (pthread_cond.c:862)
+2   Foundation                    	0x000000019c6a8464 -[NSOperation waitUntilFinished] + 480 (NSOperation.m:1380)
+3   Foundation                    	0x000000019c6be124 __NSOPERATIONQUEUE_IS_WAITING_ON_AN_OPERATION__ + 16 (NSOperation.m:2625)
+4   Foundation                    	0x000000019c6ed54c -[NSOperationQueue waitUntilAllOperationsAreFinished] + 184 (NSOperation.m:2836)
+5   Core                          	0x00000001060f3530 BlurredService.scanBlurredPhotos(in:) + 952 (BlurredService.swift:99)
+6   Core                          	0x00000001060d0e30 AssetsProcessingService.scanBlurredPhotos(in:) + 64 (AssetsProcessing+Blur.swift:58)
+7   Core                          	0x00000001060ed358 closure #1 in closure #2 in AssetsProcessingService.scanPageStep(from:type:) + 12 (AssetsProcessingService.swift:509)
+8   Core                          	0x00000001060ed358 specialized autoreleasepool<A, B>(invoking:) + 20 (/<compiler-generated>:0)
+9   Core                          	0x00000001060ed358 closure #2 in AssetsProcessingService.scanPageStep(from:type:) + 20 (AssetsProcessingService.swift:509)
+10  Core                          	0x00000001060ed358 AssetsProcessingService.scanPageStep(from:type:) + 472 (AssetsProcessingService.swift:506)
+11  Core                          	0x00000001060f3030 closure #1 in closure #1 in AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 16 (AssetsProcessingService.swift:486)
+12  Core                          	0x00000001060f3030 specialized autoreleasepool<A, B>(invoking:) + 28 (/<compiler-generated>:0)
+13  Core                          	0x00000001060f3030 closure #1 in AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 28 (AssetsProcessingService.swift:486)
+14  Core                          	0x00000001060f3030 partial apply for closure #1 in AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 48 (/<compiler-generated>:0)
+15  Core                          	0x0000000105fe6360 <deduplicated_symbol> + 28
+16  Foundation                    	0x000000019c561254 <deduplicated_symbol> + 24 (:-1)
+17  Foundation                    	0x000000019c560e44 -[NSBlockOperation main] + 96 (NSOperation.m:1565)
+18  Foundation                    	0x000000019c560f74 __NSOPERATION_IS_INVOKING_MAIN__ + 16 (NSOperation.m:2199)
+19  Foundation                    	0x000000019c560a14 -[NSOperation start] + 640 (NSOperation.m:1407)
+20  Foundation                    	0x000000019c560ddc __NSOPERATIONQUEUE_IS_STARTING_AN_OPERATION__ + 16 (NSOperation.m:2230)
+21  Foundation                    	0x000000019c560698 __NSOQSchedule_f + 164 (NSOperation.m:2241)
+22  libdispatch.dylib             	0x00000001d685a450 _dispatch_block_async_invoke2 + 148 (queue.c:598)
+23  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+24  libdispatch.dylib             	0x00000001d684f664 _dispatch_continuation_pop + 596 (queue.c:349)
+25  libdispatch.dylib             	0x00000001d684ecd8 _dispatch_async_redirect_invoke + 580 (queue.c:873)
+26  libdispatch.dylib             	0x00000001d685cf48 _dispatch_root_queue_drain + 364 (queue.c:7409)
+27  libdispatch.dylib             	0x00000001d685d6fc _dispatch_worker_thread2 + 180 (queue.c:7487)
+28  libsystem_pthread.dylib       	0x00000001f9cc337c _pthread_wqthread + 232 (pthread.c:2709)
+29  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 3:
+0   dyld                          	0x000000019bf0c68c dyld3::MachOFile::forEachLoadCommand(Diagnostics&, void (load_command const*, bool&) block_pointer) const + 232 (MachOFile.cpp:474)
+1   dyld                          	0x000000019bf0c9b4 dyld3::MachOLoaded::getLinkEditLoadCommands(Diagnostics&, dyld3::MachOLoaded::LinkEditInfo&) const + 188 (MachOLoaded.cpp:75)
+2   dyld                          	0x000000019bf0bc4c dyld3::MachOLoaded::getLinkEditPointers(Diagnostics&, dyld3::MachOLoaded::LinkEditInfo&) const + 40 (MachOLoaded.cpp:188)
+3   dyld                          	0x000000019bf4a968 dyld3::MachOLoaded::findClosestSymbol(unsigned long long, char const**, unsigned long long*) const + 76 (MachOLoaded.cpp:610)
+4   dyld                          	0x000000019bf4bcb4 dyld4::APIs::dladdr(void const*, dl_info*) + 236 (DyldAPIs.cpp:1113)
+5   Clean-Gallery                 	0x00000001030ea3e8 GADRegisterExceptionHandler + 1208
+6   Clean-Gallery                 	0x00000001030e9cc8 GADRegisterSignalHandlers + 644
+7   libsystem_platform.dylib      	0x00000002b2be6158 _sigtramp + 56 (sigtramp.c:116)
+8   libsystem_pthread.dylib       	0x00000001f9cc9810 pthread_kill + 268 (pthread.c:1721)
+9   libsystem_c.dylib             	0x00000001aa4f0f1c abort + 124 (abort.c:122)
+10  libswiftCore.dylib            	0x000000019bfdff60 swift::fatalErrorv(unsigned int, char const*, char*) + 144 (Errors.cpp:443)
+11  libswiftCore.dylib            	0x000000019bfdff80 swift::fatalError(unsigned int, char const*, ...) + 32 (Errors.cpp:451)
+12  libswiftCore.dylib            	0x000000019bfe01b0 swift::swift_abortAllocationFailure(unsigned long, unsigned long) + 36 (Errors.cpp:550)
+13  libswiftCore.dylib            	0x000000019bfe43ac swift::swift_slowAllocTyped(unsigned long, unsigned long, unsigned long long) + 132 (Heap.cpp:121)
+14  libswiftCore.dylib            	0x000000019bfe4754 swift_allocObject + 136 (HeapObject.cpp:245)
+15  Core                          	0x00000001060d94b4 specialized Collection.map<A, B>(_:) + 288
+16  Core                          	0x00000001060d9bf0 AssetsProcessingService.save() + 284 (AssetsProcessing+Storage.swift:29)
+17  Core                          	0x00000001060ed8a8 closure #1 in closure #1 in AssetsProcessingService.scanSimilars(type:with:) + 8 (AssetsProcessingService.swift:593)
+18  Core                          	0x00000001060ed8a8 specialized autoreleasepool<A, B>(invoking:) + 8 (/<compiler-generated>:0)
+19  Core                          	0x00000001060ed8a8 closure #1 in AssetsProcessingService.scanSimilars(type:with:) + 8 (AssetsProcessingService.swift:583)
+20  Core                          	0x00000001060ed8a8 specialized NSLocking.withCriticalSection<A>(_:) + 8 (NSLocking.swift:16)
+21  Core                          	0x00000001060ed8a8 AssetsProcessingService.scanSimilars(type:with:) + 876 (AssetsProcessingService.swift:581)
+22  Core                          	0x00000001060ed4a8 closure #4 in AssetsProcessingService.scanPageStep(from:type:) + 16 (AssetsProcessingService.swift:521)
+23  Core                          	0x00000001060ed4a8 specialized autoreleasepool<A, B>(invoking:) + 24 (/<compiler-generated>:0)
+24  Core                          	0x00000001060ed4a8 AssetsProcessingService.scanPageStep(from:type:) + 808 (AssetsProcessingService.swift:520)
+25  Core                          	0x00000001060f3030 closure #1 in closure #1 in AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 16 (AssetsProcessingService.swift:486)
+26  Core                          	0x00000001060f3030 specialized autoreleasepool<A, B>(invoking:) + 28 (/<compiler-generated>:0)
+27  Core                          	0x00000001060f3030 closure #1 in AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 28 (AssetsProcessingService.swift:486)
+28  Core                          	0x00000001060f3030 partial apply for closure #1 in AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 48 (/<compiler-generated>:0)
+29  Core                          	0x0000000105fe6360 <deduplicated_symbol> + 28
+30  Foundation                    	0x000000019c561254 <deduplicated_symbol> + 24 (:-1)
+31  Foundation                    	0x000000019c560e44 -[NSBlockOperation main] + 96 (NSOperation.m:1565)
+32  Foundation                    	0x000000019c560f74 __NSOPERATION_IS_INVOKING_MAIN__ + 16 (NSOperation.m:2199)
+33  Foundation                    	0x000000019c560a14 -[NSOperation start] + 640 (NSOperation.m:1407)
+34  Foundation                    	0x000000019c560ddc __NSOPERATIONQUEUE_IS_STARTING_AN_OPERATION__ + 16 (NSOperation.m:2230)
+35  Foundation                    	0x000000019c560698 __NSOQSchedule_f + 164 (NSOperation.m:2241)
+36  libdispatch.dylib             	0x00000001d685a450 _dispatch_block_async_invoke2 + 148 (queue.c:598)
+37  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+38  libdispatch.dylib             	0x00000001d684f664 _dispatch_continuation_pop + 596 (queue.c:349)
+39  libdispatch.dylib             	0x00000001d684ecd8 _dispatch_async_redirect_invoke + 580 (queue.c:873)
+40  libdispatch.dylib             	0x00000001d685cf48 _dispatch_root_queue_drain + 364 (queue.c:7409)
+41  libdispatch.dylib             	0x00000001d685d6fc _dispatch_worker_thread2 + 180 (queue.c:7487)
+42  libsystem_pthread.dylib       	0x00000001f9cc337c _pthread_wqthread + 232 (pthread.c:2709)
+43  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 4:
+
+Thread 5 name:
+Thread 5:
+0   libsystem_kernel.dylib        	0x000000024703d36c __select + 8 (:-1)
+1   CoreFoundation                	0x000000019ef3f774 __CFSocketManager + 708 (CFSocket.c:1341)
+2   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+3   libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 6 name:
+Thread 6:
+0   libsystem_kernel.dylib        	0x0000000247035cd4 mach_msg2_trap + 8 (:-1)
+1   libsystem_kernel.dylib        	0x00000002470392f8 mach_msg2_internal + 76 (mach_msg.c:201)
+2   libsystem_kernel.dylib        	0x0000000247039214 mach_msg_overwrite + 428 (mach_msg.c:0)
+3   libsystem_kernel.dylib        	0x000000024703905c mach_msg + 24 (mach_msg.c:323)
+4   CoreFoundation                	0x000000019eebca08 __CFRunLoopServiceMachPort + 160 (CFRunLoop.c:2650)
+5   CoreFoundation                	0x000000019ee92a20 __CFRunLoopRun + 1188 (CFRunLoop.c:3035)
+6   CoreFoundation                	0x000000019ee91c44 _CFRunLoopRunSpecificWithOptions + 532 (CFRunLoop.c:3462)
+7   CFNetwork                     	0x00000001b37c6868 +[__CFN_CoreSchedulingSetRunnable _run:] + 416 (CoreSchedulingSet.mm:1473)
+8   Foundation                    	0x000000019c5aad3c __NSThread__start__ + 732 (NSThread.m:997)
+9   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+10  libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 7:
+0   libsystem_kernel.dylib        	0x000000024703b7f4 __semwait_signal + 8 (:-1)
+1   libsystem_c.dylib             	0x00000001aa4857e4 nanosleep + 220 (nanosleep.c:104)
+2   libsystem_c.dylib             	0x00000001aa485908 sleep + 52 (sleep.c:62)
+3   Core                          	0x000000010616461c monitorCachedData + 748 (TTSDKCrashCachedData.c:144)
+4   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+5   libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 8 name:
+Thread 8:
+0   libsystem_kernel.dylib        	0x0000000247035cd4 mach_msg2_trap + 8 (:-1)
+1   libsystem_kernel.dylib        	0x00000002470392f8 mach_msg2_internal + 76 (mach_msg.c:201)
+2   libsystem_kernel.dylib        	0x00000002470372a4 thread_suspend + 108 (thread_actUser.c:1036)
+3   Core                          	0x000000010615d5c4 handleExceptions + 120 (TTSDKCrashMonitor_MachException.c:267)
+4   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+5   libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 9 name:
+Thread 9:
+0   libsystem_kernel.dylib        	0x0000000247035cd4 mach_msg2_trap + 8 (:-1)
+1   libsystem_kernel.dylib        	0x000000024703938c mach_msg2_internal + 224 (mach_msg.c:244)
+2   libsystem_kernel.dylib        	0x0000000247039214 mach_msg_overwrite + 428 (mach_msg.c:0)
+3   libsystem_kernel.dylib        	0x000000024703905c mach_msg + 24 (mach_msg.c:323)
+4   Core                          	0x000000010615d5f0 handleExceptions + 164 (TTSDKCrashMonitor_MachException.c:275)
+5   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+6   libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 10 name:
+Thread 10:
+0   libsystem_kernel.dylib        	0x000000024703b5d4 __psynch_cvwait + 8 (:-1)
+1   libsystem_pthread.dylib       	0x00000001f9cc4b58 _pthread_cond_wait + 984 (pthread_cond.c:862)
+2   JavaScriptCore                	0x00000001b3941e64 scavenger_thread_main + 1440 (pas_scavenger.c:393)
+3   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+4   libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 11 name:
+Thread 11:
+0   libsystem_kernel.dylib        	0x0000000247035cd4 mach_msg2_trap + 8 (:-1)
+1   libsystem_kernel.dylib        	0x00000002470392f8 mach_msg2_internal + 76 (mach_msg.c:201)
+2   libsystem_kernel.dylib        	0x0000000247039214 mach_msg_overwrite + 428 (mach_msg.c:0)
+3   libsystem_kernel.dylib        	0x000000024703905c mach_msg + 24 (mach_msg.c:323)
+4   CoreFoundation                	0x000000019eebca08 __CFRunLoopServiceMachPort + 160 (CFRunLoop.c:2650)
+5   CoreFoundation                	0x000000019ee92a20 __CFRunLoopRun + 1188 (CFRunLoop.c:3035)
+6   CoreFoundation                	0x000000019ee91c44 _CFRunLoopRunSpecificWithOptions + 532 (CFRunLoop.c:3462)
+7   CoreFoundation                	0x000000019ef1142c CFRunLoopRun + 64 (CFRunLoop.c:3479)
+8   CoreMotion                    	0x00000001b6d6ab1c CLMotionCore::runMotionThread(void*) + 1676 (CLMotionCore.mm:375)
+9   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+10  libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 12:
+
+Thread 13:
+0   libsystem_kernel.dylib        	0x000000024703b5d4 __psynch_cvwait + 8 (:-1)
+1   libsystem_pthread.dylib       	0x00000001f9cc4b58 _pthread_cond_wait + 984 (pthread_cond.c:862)
+2   Foundation                    	0x000000019c6a8464 -[NSOperation waitUntilFinished] + 480 (NSOperation.m:1380)
+3   Foundation                    	0x000000019c6be124 __NSOPERATIONQUEUE_IS_WAITING_ON_AN_OPERATION__ + 16 (NSOperation.m:2625)
+4   Foundation                    	0x000000019c6ed54c -[NSOperationQueue waitUntilAllOperationsAreFinished] + 184 (NSOperation.m:2836)
+5   Core                          	0x00000001060f2ef0 specialized AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 364 (AssetsProcessingService.swift:489)
+6   Core                          	0x00000001060eb53c AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 16 (AssetsProcessingService.swift:319)
+7   Core                          	0x00000001060eb53c closure #7 in AssetsProcessingService.addNewFolders(_:) + 116
+8   Core                          	0x0000000105fe6360 <deduplicated_symbol> + 28
+9   libdispatch.dylib             	0x00000001d684aadc _dispatch_call_block_and_release + 32 (init.c:1575)
+10  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+11  libdispatch.dylib             	0x00000001d684f664 _dispatch_continuation_pop + 596 (queue.c:349)
+12  libdispatch.dylib             	0x00000001d684ecd8 _dispatch_async_redirect_invoke + 580 (queue.c:873)
+13  libdispatch.dylib             	0x00000001d685cf48 _dispatch_root_queue_drain + 364 (queue.c:7409)
+14  libdispatch.dylib             	0x00000001d685d6fc _dispatch_worker_thread2 + 180 (queue.c:7487)
+15  libsystem_pthread.dylib       	0x00000001f9cc337c _pthread_wqthread + 232 (pthread.c:2709)
+16  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 14 name:
+Thread 14:
+0   libsystem_kernel.dylib        	0x0000000247035c50 semaphore_wait_trap + 8 (:-1)
+1   WebKit                        	0x00000001b8ec1df4 IPC::StreamConnectionWorkQueue::startProcessingThread()::$_0::operator()() + 48
+2   JavaScriptCore                	0x00000001b3af4da8 WTF::Thread::entryPoint(WTF::Thread::NewThreadContext*) + 368 (Threading.cpp:268)
+3   JavaScriptCore                	0x00000001b3af4e88 WTF::wtfThreadEntryPoint(void*) + 16 (ThreadingPOSIX.cpp:245)
+4   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+5   libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 15 name:
+Thread 15:
+0   libsystem_kernel.dylib        	0x0000000247035c50 semaphore_wait_trap + 8 (:-1)
+1   libdispatch.dylib             	0x00000001d684c910 _dispatch_sema4_wait + 28 (lock.c:139)
+2   libdispatch.dylib             	0x00000001d684cec0 _dispatch_semaphore_wait_slow + 132 (semaphore.c:132)
+3   UIKitCore                     	0x00000001a47f18d8 0x1a4763000 + 583896
+4   UIKitCore                     	0x00000001a4edd150 closure #2 in InProcessAnimationManager.startAdvancing(_:) + 332 (InProcessAnimationManager.swift:1009)
+5   UIKitCore                     	0x00000001a47872e4 <deduplicated_symbol> + 36 (:-1)
+6   Foundation                    	0x000000019c5aad3c __NSThread__start__ + 732 (NSThread.m:997)
+7   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+8   libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 16 name:
+Thread 16:
+0   libsystem_kernel.dylib        	0x0000000247035cd4 mach_msg2_trap + 8 (:-1)
+1   libsystem_kernel.dylib        	0x00000002470392f8 mach_msg2_internal + 76 (mach_msg.c:201)
+2   libsystem_kernel.dylib        	0x0000000247039214 mach_msg_overwrite + 428 (mach_msg.c:0)
+3   libsystem_kernel.dylib        	0x000000024703905c mach_msg + 24 (mach_msg.c:323)
+4   CoreFoundation                	0x000000019eebca08 __CFRunLoopServiceMachPort + 160 (CFRunLoop.c:2650)
+5   CoreFoundation                	0x000000019ee92a20 __CFRunLoopRun + 1188 (CFRunLoop.c:3035)
+6   CoreFoundation                	0x000000019ee91c44 _CFRunLoopRunSpecificWithOptions + 532 (CFRunLoop.c:3462)
+7   CoreFoundation                	0x000000019ef1142c CFRunLoopRun + 64 (CFRunLoop.c:3479)
+8   ANEServices                   	0x00000001db537660 ANE::ANEServicesThreadStart(ANE::ANEServicesThreadParams*) + 152 (ANEServicesPrivate.mm:282)
+9   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+10  libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 17 name:
+Thread 17:
+0   libsystem_kernel.dylib        	0x0000000247035cd4 mach_msg2_trap + 8 (:-1)
+1   libsystem_kernel.dylib        	0x00000002470392f8 mach_msg2_internal + 76 (mach_msg.c:201)
+2   libsystem_kernel.dylib        	0x0000000247039214 mach_msg_overwrite + 428 (mach_msg.c:0)
+3   libsystem_kernel.dylib        	0x000000024703905c mach_msg + 24 (mach_msg.c:323)
+4   CoreFoundation                	0x000000019eebca08 __CFRunLoopServiceMachPort + 160 (CFRunLoop.c:2650)
+5   CoreFoundation                	0x000000019ee92a20 __CFRunLoopRun + 1188 (CFRunLoop.c:3035)
+6   CoreFoundation                	0x000000019ee91c44 _CFRunLoopRunSpecificWithOptions + 532 (CFRunLoop.c:3462)
+7   CoreFoundation                	0x000000019ef1142c CFRunLoopRun + 64 (CFRunLoop.c:3479)
+8   ANEServices                   	0x00000001db537660 ANE::ANEServicesThreadStart(ANE::ANEServicesThreadParams*) + 152 (ANEServicesPrivate.mm:282)
+9   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+10  libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 18:
+0   CoreFoundation                	0x000000019ee87dd0 CFDictionaryGetValue + 0 (CFDictionary.c:265)
+1   IOSurface                     	0x00000001cb6a9394 IOSurfaceClientCopyValue + 116 (IOSurfaceClient.m:2119)
+2   CoreVideo                     	0x00000001b8a206ec copyIOSurfaceAttachment(__IOSurface*, __CFString const*) + 200 (CVPixelBufferInternal.cpp:1016)
+3   CoreVideo                     	0x00000001b8a208a0 CVPixelBuffer::copyAttachment(__CFString const*, CVAttachmentMode*) + 188 (CVPixelBufferInternal.cpp:1522)
+4   VideoToolbox                  	0x00000001ab9beaec VTPixelTransferSessionSetCrashReporterMethod + 308 (VTPixelTransferChain.c:193)
+5   VideoToolbox                  	0x00000001ab9bef14 VTPixelTransferChainDoTransfer + 432 (VTPixelTransferChain.c:511)
+6   VideoToolbox                  	0x00000001ab976ba4 vtPixelTransferSession_BuildChain + 6156 (VTPixelTransferSession.c:44582)
+7   VideoToolbox                  	0x00000001ab51238c _VTPixelTransferSessionTransferImage + 1584 (VTPixelTransferSession.c:46161)
+8   VideoToolbox                  	0x00000001ab4e41c8 VTPixelTransferSessionTransferImage + 476 (VTPixelTransferSession.c:46491)
+9   CMPhoto                       	0x00000001c1283578 _callbackDataProviderGetBytePointer + 268 (CMPhotoPixelBufferUtilities.c:237)
+10  CoreGraphics                  	0x000000019fc2c898 CGDataProviderRetainBytePtr + 140 (CGDataProvider.c:863)
+11  CoreGraphics                  	0x000000019fc4d2ac CGDataProviderCopyData + 48 (CGDataProviderData.c:518)
+12  ImageIO                       	0x00000001a1c18f8c IIOImagePixelDataProvider::getBytesDataProvider(void*, unsigned long) + 412 (CGImagePixelDataProvider.cpp:1027)
+13  ImageIO                       	0x00000001a1c0ecb8 PNGWritePlugin::writePNG(IIOImagePixelDataProvider*, IIODictionary*) + 1128 (PNG_writePlugin.cpp:392)
+14  ImageIO                       	0x00000001a1c04800 PNGWritePlugin::writeAll() + 952 (PNG_writePlugin.cpp:1670)
+15  ImageIO                       	0x00000001a1c043fc PNGWritePlugin::WriteProc(void*, void*, void*, void*) + 200 (PNG_writePlugin.cpp:1744)
+16  ImageIO                       	0x00000001a1c0407c IIOImageDestination::finalizeDestination(unsigned long long*) + 820 (CGImageDestination.cpp:4106)
+17  ImageIO                       	0x00000001a1c03c70 CGImageDestinationFinalize + 196 (CGImageDestination.cpp:5682)
+18  UIKitCore                     	0x00000001a4a67650 _UIImageDataRepresentation + 440 (UIImage_Writing.m:77)
+19  Core                          	0x000000010601325c specialized SimilarityHash12.__allocating_init(with:type:) + 72 (SimilarityHash12.swift:42)
+20  Core                          	0x00000001060f4434 SimilarityHash12.__allocating_init(with:type:) + 8 (/<compiler-generated>:0)
+21  Core                          	0x00000001060f4434 UIImage.getSimilarityHash(for:) + 8 (AnySimilarityHash.swift:27)
+22  Core                          	0x00000001060f4434 closure #1 in closure #1 in BlurredService.scanBlurredPhotos(in:) + 8 (BlurredService.swift:82)
+23  Core                          	0x00000001060f4434 specialized autoreleasepool<A, B>(invoking:) + 8 (/<compiler-generated>:0)
+24  Core                          	0x00000001060f4434 closure #1 in BlurredService.scanBlurredPhotos(in:) + 296 (BlurredService.swift:68)
+25  Core                          	0x0000000105fe6360 <deduplicated_symbol> + 28
+26  Foundation                    	0x000000019c561254 <deduplicated_symbol> + 24 (:-1)
+27  Foundation                    	0x000000019c560e44 -[NSBlockOperation main] + 96 (NSOperation.m:1565)
+28  Foundation                    	0x000000019c560f74 __NSOPERATION_IS_INVOKING_MAIN__ + 16 (NSOperation.m:2199)
+29  Foundation                    	0x000000019c560a14 -[NSOperation start] + 640 (NSOperation.m:1407)
+30  Foundation                    	0x000000019c560ddc __NSOPERATIONQUEUE_IS_STARTING_AN_OPERATION__ + 16 (NSOperation.m:2230)
+31  Foundation                    	0x000000019c560698 __NSOQSchedule_f + 164 (NSOperation.m:2241)
+32  libdispatch.dylib             	0x00000001d685a450 _dispatch_block_async_invoke2 + 148 (queue.c:598)
+33  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+34  libdispatch.dylib             	0x00000001d684f664 _dispatch_continuation_pop + 596 (queue.c:349)
+35  libdispatch.dylib             	0x00000001d684ecd8 _dispatch_async_redirect_invoke + 580 (queue.c:873)
+36  libdispatch.dylib             	0x00000001d685cf48 _dispatch_root_queue_drain + 364 (queue.c:7409)
+37  libdispatch.dylib             	0x00000001d685d6fc _dispatch_worker_thread2 + 180 (queue.c:7487)
+38  libsystem_pthread.dylib       	0x00000001f9cc337c _pthread_wqthread + 232 (pthread.c:2709)
+39  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 19:
+
+Thread 20:
+
+Thread 21:
+0   libswiftCore.dylib            	0x000000019c0406f4 swift_conformsToProtocolMaybeInstantiateSuperclasses(swift::TargetMetadata<swift::InProcess> const*, swift::TargetProtocolDescriptor<swift::InProcess> const*, bool) + 112 (ProtocolConformance.cpp:0)
+1   libswiftCore.dylib            	0x000000019c03e988 swift_conformsToProtocolCommon + 64 (CompatibilityOverrideRuntime.def:191)
+2   libswiftCore.dylib            	0x000000019bfdbf94 findBridgeWitness(swift::TargetMetadata<swift::InProcess> const*) + 180 (DynamicCast.cpp:258)
+3   libswiftCore.dylib            	0x000000019bfd8fc0 tryCastFromClassToObjCBridgeable(swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*, swift::TargetMetadata<swif... + 60 (DynamicCast.cpp:394)
+4   libswiftCore.dylib            	0x000000019bfd8898 tryCast(swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*, swift::TargetMetadata<swift::InProcess> const*&, sw... + 3376 (DynamicCast.cpp:0)
+5   libswiftCore.dylib            	0x000000019bfd784c swift_dynamicCast + 96 (CompatibilityOverrideRuntime.def:121)
+6   Foundation                    	0x000000019c673ed4 specialized __JSONEncoder.wrapGeneric<A, B>(_:for:) + 852 (JSONEncoder.swift:1215)
+7   Foundation                    	0x000000019c6b9f68 _JSONUnkeyedEncodingContainer.encode<A>(_:) + 232 (JSONEncoder.swift:975)
+8   Foundation                    	0x000000019c6b9e78 protocol witness for UnkeyedEncodingContainer.encode<A>(_:) in conformance _JSONUnkeyedEncodingContainer + 16 (<compiler-generated>:0)
+9   libswiftCore.dylib            	0x000000019c12e370 Array<A>.encode(to:) + 440 (Codable.swift:6032)
+10  libswiftCore.dylib            	0x000000019c12e4b0 protocol witness for Encodable.encode(to:) in conformance <A> [A] + 32 (<compiler-generated>:0)
+11  libswiftCore.dylib            	0x000000019c41d4bc dispatch thunk of Encodable.encode(to:) + 32 (:-1)
+12  Foundation                    	0x000000019c6777e8 __JSONEncoder.wrapGeneric<A, B>(_:for:) + 4968 (JSONEncoder.swift:1228)
+13  Foundation                    	0x000000019c67d40c _JSONKeyedEncodingContainer.encode<A>(_:forKey:) + 488 (JSONEncoder.swift:856)
+14  Foundation                    	0x000000019c675f48 protocol witness for KeyedEncodingContainerProtocol.encode<A>(_:forKey:) in conformance _JSONKeyedEncodingContainer<A> + 32 (<compiler-generated>:0)
+15  libswiftCore.dylib            	0x000000019c116798 _KeyedEncodingContainerBox.encode<A, B>(_:forKey:) + 372 (Codable.swift:4125)
+16  libswiftCore.dylib            	0x000000019c10a714 KeyedEncodingContainer.encode<A>(_:forKey:) + 68 (Codable.swift:736)
+17  Core                          	0x00000001060156b0 AssetFolder.encode(to:) + 796 (/<compiler-generated>:0)
+18  Core                          	0x0000000106015c5c protocol witness for Encodable.encode(to:) in conformance AssetFolder + 20 (/<compiler-generated>:0)
+19  libswiftCore.dylib            	0x000000019c41d4bc dispatch thunk of Encodable.encode(to:) + 32 (:-1)
+20  Foundation                    	0x000000019c674e4c specialized __JSONEncoder.wrapGeneric<A, B>(_:for:) + 4812 (JSONEncoder.swift:1228)
+21  Foundation                    	0x000000019c6b9f68 _JSONUnkeyedEncodingContainer.encode<A>(_:) + 232 (JSONEncoder.swift:975)
+22  Foundation                    	0x000000019c6b9e78 protocol witness for UnkeyedEncodingContainer.encode<A>(_:) in conformance _JSONUnkeyedEncodingContainer + 16 (<compiler-generated>:0)
+23  libswiftCore.dylib            	0x000000019c12e370 Array<A>.encode(to:) + 440 (Codable.swift:6032)
+24  libswiftCore.dylib            	0x000000019c12e4b0 protocol witness for Encodable.encode(to:) in conformance <A> [A] + 32 (<compiler-generated>:0)
+25  libswiftCore.dylib            	0x000000019c41d4bc dispatch thunk of Encodable.encode(to:) + 32 (:-1)
+26  Foundation                    	0x000000019c6777e8 __JSONEncoder.wrapGeneric<A, B>(_:for:) + 4968 (JSONEncoder.swift:1228)
+27  Foundation                    	0x000000019c67d40c _JSONKeyedEncodingContainer.encode<A>(_:forKey:) + 488 (JSONEncoder.swift:856)
+28  Foundation                    	0x000000019c675f48 protocol witness for KeyedEncodingContainerProtocol.encode<A>(_:forKey:) in conformance _JSONKeyedEncodingContainer<A> + 32 (<compiler-generated>:0)
+29  libswiftCore.dylib            	0x000000019c116798 _KeyedEncodingContainerBox.encode<A, B>(_:forKey:) + 372 (Codable.swift:4125)
+30  libswiftCore.dylib            	0x000000019c10a714 KeyedEncodingContainer.encode<A>(_:forKey:) + 68 (Codable.swift:736)
+31  Core                          	0x00000001060f988c AssetFolderStorage.encode(to:) + 240 (/<compiler-generated>:0)
+32  Core                          	0x00000001060f9f70 protocol witness for Encodable.encode(to:) in conformance AssetFolderStorage + 16 (/<compiler-generated>:0)
+33  libswiftCore.dylib            	0x000000019c41d4bc dispatch thunk of Encodable.encode(to:) + 32 (:-1)
+34  Foundation                    	0x000000019c674e4c specialized __JSONEncoder.wrapGeneric<A, B>(_:for:) + 4812 (JSONEncoder.swift:1228)
+35  Foundation                    	0x000000019c6751f4 JSONEncoder.encode<A>(_:) + 296 (JSONEncoder.swift:350)
+36  Foundation                    	0x000000019c675e40 dispatch thunk of JSONEncoder.encode<A>(_:) + 56
+37  Core                          	0x00000001060f85b4 closure #1 in FileStorage.save(assets:) + 236
+38  Core                          	0x00000001060f847c closure #1 in FileStorage.save(folders:) + 48
+39  Core                          	0x00000001060da824 specialized autoreleasepool<A, B>(invoking:) + 20 (FileStorage.swift:155)
+40  Core                          	0x00000001060da824 FileStorage.save(folders:) + 20 (AssetsProcessing+Storage.swift:33)
+41  Core                          	0x00000001060da824 closure #2 in AssetsProcessingService.save() + 224
+42  Core                          	0x0000000105fe6360 <deduplicated_symbol> + 28
+43  libdispatch.dylib             	0x00000001d684aadc _dispatch_call_block_and_release + 32 (init.c:1575)
+44  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+45  libdispatch.dylib             	0x00000001d6853468 _dispatch_lane_serial_drain + 740 (queue.c:3991)
+46  libdispatch.dylib             	0x00000001d6853f78 _dispatch_lane_invoke + 440 (queue.c:4082)
+47  libdispatch.dylib             	0x00000001d685e3ec _dispatch_root_queue_drain_deferred_wlh + 292 (queue.c:7265)
+48  libdispatch.dylib             	0x00000001d685dce4 _dispatch_workloop_worker_thread + 692 (queue.c:6859)
+49  libsystem_pthread.dylib       	0x00000001f9cc33b8 _pthread_wqthread + 292 (pthread.c:2696)
+50  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 22:
+
+Thread 23:
+0   libsystem_kernel.dylib        	0x0000000247035a54 kevent_id + 8 (:-1)
+1   libdispatch.dylib             	0x00000001d686d95c _dispatch_kq_poll + 228 (event_kevent.c:780)
+2   libdispatch.dylib             	0x00000001d686e344 _dispatch_event_loop_wait_for_ownership + 424 (event_kevent.c:2343)
+3   libdispatch.dylib             	0x00000001d685ab84 __DISPATCH_WAIT_FOR_QUEUE__ + 340 (queue.c:1728)
+4   libdispatch.dylib             	0x00000001d685a758 _dispatch_sync_f_slow + 148 (queue.c:1823)
+5   CoreData                      	0x00000001a14edf20 -[NSManagedObjectContext(_NSCoreDataSPI) performWithOptions:andBlock:] + 612 (NSManagedObjectContext.m:9216)
+6   PhotoLibraryServices          	0x00000001b79e8974 -[PLManagedObjectContext pl_performWithOptions:andBlock:] + 208 (PLManagedObjectContext.m:716)
+7   PhotoLibraryServices          	0x00000001b7ad4344 +[PLPhotoLibrary(MegaMocAdditions) _withDispatchGroup:onContext:synchronously:shouldSave:refreshAfterSave:performTransaction:completionHandler:] + 776 (PLPhotoLibrary+MegaMocAdditions.m:369)
+8   PhotoLibraryServices          	0x00000001b7ad1610 -[PLPhotoLibrary(MegaMocAdditions) performBlockAndWait:] + 96 (PLPhotoLibrary+MegaMocAdditions.m:728)
+9   Photos                        	0x00000001b8297298 +[PHAssetResource(Private) assetResourcesForAsset:includeDerivatives:includeMetadata:includeAdjustmentOverflowDataBlob:] + 236 (PHAssetResource.m:866)
+10  Core                          	0x000000010601aba8 specialized CGAsset.__allocating_init(phAsset:chatSource:) + 188 (CGAsset.swift:143)
+11  Core                          	0x00000001060ed220 CGAsset.__allocating_init(phAsset:chatSource:) + 8 (/<compiler-generated>:0)
+12  Core                          	0x00000001060ed220 PHAsset.cgAsset.getter + 8
+13  Core                          	0x00000001060ed220 closure #1 in AssetsProcessingService.scanPageStep(from:type:) + 8 (PHAsset+Additions.swift:26)
+14  Core                          	0x00000001060ed220 specialized Collection.map<A, B>(_:) + 116 (AssetsProcessingService.swift:504)
+15  Core                          	0x00000001060ed220 AssetsProcessingService.scanPageStep(from:type:) + 160 (/<compiler-generated>:0)
+16  Core                          	0x00000001060ed220 0x105fa8000 + 1331744 (AssetsProcessingService.swift:504)
+17  Core                          	0x00000001060f3030 closure #1 in closure #1 in AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 16 (AssetsProcessingService.swift:486)
+18  Core                          	0x00000001060f3030 specialized autoreleasepool<A, B>(invoking:) + 28 (/<compiler-generated>:0)
+19  Core                          	0x00000001060f3030 closure #1 in AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 28 (AssetsProcessingService.swift:486)
+20  Core                          	0x00000001060f3030 partial apply for closure #1 in AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 48 (/<compiler-generated>:0)
+21  Core                          	0x0000000105fe6360 <deduplicated_symbol> + 28
+22  Foundation                    	0x000000019c561254 <deduplicated_symbol> + 24 (:-1)
+23  Foundation                    	0x000000019c560e44 -[NSBlockOperation main] + 96 (NSOperation.m:1565)
+24  Foundation                    	0x000000019c560f74 __NSOPERATION_IS_INVOKING_MAIN__ + 16 (NSOperation.m:2199)
+25  Foundation                    	0x000000019c560a14 -[NSOperation start] + 640 (NSOperation.m:1407)
+26  Foundation                    	0x000000019c560ddc __NSOPERATIONQUEUE_IS_STARTING_AN_OPERATION__ + 16 (NSOperation.m:2230)
+27  Foundation                    	0x000000019c560698 __NSOQSchedule_f + 164 (NSOperation.m:2241)
+28  libdispatch.dylib             	0x00000001d685a450 _dispatch_block_async_invoke2 + 148 (queue.c:598)
+29  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+30  libdispatch.dylib             	0x00000001d684f664 _dispatch_continuation_pop + 596 (queue.c:349)
+31  libdispatch.dylib             	0x00000001d684ecd8 _dispatch_async_redirect_invoke + 580 (queue.c:873)
+32  libdispatch.dylib             	0x00000001d685cf48 _dispatch_root_queue_drain + 364 (queue.c:7409)
+33  libdispatch.dylib             	0x00000001d685d6fc _dispatch_worker_thread2 + 180 (queue.c:7487)
+34  libsystem_pthread.dylib       	0x00000001f9cc337c _pthread_wqthread + 232 (pthread.c:2709)
+35  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 24:
+0   libsystem_kernel.dylib        	0x0000000247035cd4 mach_msg2_trap + 8 (:-1)
+1   libsystem_kernel.dylib        	0x00000002470392f8 mach_msg2_internal + 76 (mach_msg.c:201)
+2   libsystem_kernel.dylib        	0x0000000247039214 mach_msg_overwrite + 428 (mach_msg.c:0)
+3   libsystem_kernel.dylib        	0x000000024703905c mach_msg + 24 (mach_msg.c:323)
+4   libdispatch.dylib             	0x00000001d6865e84 _dispatch_mach_send_and_wait_for_reply + 548 (mach.c:1989)
+5   libdispatch.dylib             	0x00000001d6866224 dispatch_mach_send_with_result_and_wait_for_reply + 60 (mach.c:2026)
+6   libxpc.dylib                  	0x00000001b2c7cde8 xpc_connection_send_message_with_reply_sync + 256 (connection.c:4079)
+7   Foundation                    	0x000000019c5718f4 __NSXPCCONNECTION_IS_WAITING_FOR_A_SYNCHRONOUS_REPLY__ + 16 (NSXPCConnection.m:223)
+8   Foundation                    	0x000000019cfa6b84 -[NSXPCConnection _sendInvocation:orArguments:count:methodSignature:selector:withProxy:] + 2100 (NSXPCConnection.m:1674)
+9   Foundation                    	0x000000019cfa6180 -[NSXPCConnection _sendSelector:withProxy:arg1:arg2:] + 128 (NSXPCConnection.m:1302)
+10  Foundation                    	0x000000019c56396c _NSXPCDistantObjectSimpleMessageSend2 + 68 (NSXPCDistantObject.m:272)
+11  CoreData                      	0x00000001a146af9c __48-[NSXPCStoreConnection sendMessage:store:error:]_block_invoke + 220 (NSXPCStoreConnection.m:223)
+12  CoreData                      	0x00000001a146b5d4 __39-[NSXPCStoreConnection performAndWait:]_block_invoke + 36 (NSXPCStoreConnection.m:277)
+13  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+14  libdispatch.dylib             	0x00000001d685a8c0 _dispatch_lane_barrier_sync_invoke_and_complete + 56 (queue.c:1128)
+15  CoreData                      	0x00000001a146a85c -[NSXPCStoreConnection performAndWait:] + 188 (NSXPCStoreConnection.m:275)
+16  CoreData                      	0x00000001a146ab2c -[NSXPCStoreConnection sendMessage:store:error:] + 316 (NSXPCStoreConnection.m:217)
+17  CoreData                      	0x00000001a146b568 -[NSXPCStoreConnection sendMessageWithContext:] + 48 (NSXPCStoreConnection.m:267)
+18  CoreData                      	0x00000001a1610b84 __54-[NSXPCStoreConnectionManager sendMessageWithContext:]_block_invoke + 96 (NSXPCStoreConnectionManager.m:208)
+19  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+20  libdispatch.dylib             	0x00000001d685aec0 _dispatch_sync_invoke_and_complete + 56 (queue.c:1114)
+21  CoreData                      	0x00000001a1610b14 -[NSXPCStoreConnectionManager sendMessageWithContext:] + 112 (NSXPCStoreConnectionManager.m:194)
+22  CoreData                      	0x00000001a1448d98 -[NSXPCStore sendMessage:fromContext:interrupts:error:] + 356 (NSXPCStore.m:498)
+23  CoreData                      	0x00000001a144b184 -[NSXPCStore executeFetchRequest:withContext:error:] + 884 (NSXPCStore.m:1198)
+24  CoreData                      	0x00000001a144ca4c -[NSXPCStore executeRequest:withContext:error:] + 1564 (NSXPCStore.m:1802)
+25  CoreData                      	0x00000001a1525e30 __65-[NSPersistentStoreCoordinator executeRequest:withContext:error:]_block_invoke.494 + 4660 (NSPersistentStoreCoordinator.m:2933)
+26  CoreData                      	0x00000001a151ad70 -[NSPersistentStoreCoordinator _routeHeavyweightBlock:] + 268 (NSPersistentStoreCoordinator.m:648)
+27  CoreData                      	0x00000001a1524310 -[NSPersistentStoreCoordinator executeRequest:withContext:error:] + 1184 (NSPersistentStoreCoordinator.m:2707)
+28  CoreData                      	0x00000001a14e0dec -[NSManagedObjectContext executeFetchRequest:error:] + 752 (NSManagedObjectContext.m:2238)
+29  PhotoLibraryServices          	0x00000001b79e9700 -[PLManagedObjectContext _pl_executeFetchRequest:error:] + 264 (PLManagedObjectContext.m:501)
+30  PhotoLibraryServices          	0x00000001b79e8624 -[PLManagedObjectContext executeFetchRequest:error:] + 88 (PLManagedObjectContext.m:757)
+31  PhotoLibraryServices          	0x00000001b7ea5fc4 +[PLManagedAsset(RM) fetchResourcesForAssetWithObjectID:inContext:versions:includeVirtualResources:allowDerivatives:excludeDynamicCPLResources:additionalPredicate:relationshipKeyPathsForPrefetching... + 496 (PLManagedAsset+RM.m:1058)
+32  Photos                        	0x00000001b829744c __120+[PHAssetResource(Private) assetResourcesForAsset:includeDerivatives:includeMetadata:includeAdjustmentOverflowDataBlob:]_block_invoke + 360 (PHAssetResource.m:881)
+33  PhotoLibraryServices          	0x00000001b7ad45bc __144+[PLPhotoLibrary(MegaMocAdditions) _withDispatchGroup:onContext:synchronously:shouldSave:refreshAfterSave:performTransaction:completionHandler:]_block_invoke_2 + 200 (PLPhotoLibrary+MegaMocAdditions.m:251)
+34  PhotoLibraryServices          	0x00000001b79e8a6c -[PLManagedObjectContext pl_wrapperForPerformBlock:] + 84 (PLManagedObjectContext.m:689)
+35  PhotoLibraryServices          	0x00000001b79e89f4 __57-[PLManagedObjectContext pl_performWithOptions:andBlock:]_block_invoke + 44 (PLManagedObjectContext.m:717)
+36  CoreData                      	0x00000001a13bda4c developerSubmittedBlockToNSManagedObjectContextPerform + 228 (NSManagedObjectContext.m:3981)
+37  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+38  libdispatch.dylib             	0x00000001d685ace4 _dispatch_sync_invoke_and_complete_recurse + 64 (queue.c:1104)
+39  libdispatch.dylib             	0x00000001d685a774 _dispatch_sync_f_slow + 176 (queue.c:1834)
+40  CoreData                      	0x00000001a14edf20 -[NSManagedObjectContext(_NSCoreDataSPI) performWithOptions:andBlock:] + 612 (NSManagedObjectContext.m:9216)
+41  PhotoLibraryServices          	0x00000001b79e8974 -[PLManagedObjectContext pl_performWithOptions:andBlock:] + 208 (PLManagedObjectContext.m:716)
+42  PhotoLibraryServices          	0x00000001b7ad4344 +[PLPhotoLibrary(MegaMocAdditions) _withDispatchGroup:onContext:synchronously:shouldSave:refreshAfterSave:performTransaction:completionHandler:] + 776 (PLPhotoLibrary+MegaMocAdditions.m:369)
+43  PhotoLibraryServices          	0x00000001b7ad1610 -[PLPhotoLibrary(MegaMocAdditions) performBlockAndWait:] + 96 (PLPhotoLibrary+MegaMocAdditions.m:728)
+44  Photos                        	0x00000001b8297298 +[PHAssetResource(Private) assetResourcesForAsset:includeDerivatives:includeMetadata:includeAdjustmentOverflowDataBlob:] + 236 (PHAssetResource.m:866)
+45  Core                          	0x000000010601aba8 specialized CGAsset.__allocating_init(phAsset:chatSource:) + 188 (CGAsset.swift:143)
+46  Core                          	0x00000001060ed220 CGAsset.__allocating_init(phAsset:chatSource:) + 8 (/<compiler-generated>:0)
+47  Core                          	0x00000001060ed220 PHAsset.cgAsset.getter + 8
+48  Core                          	0x00000001060ed220 closure #1 in AssetsProcessingService.scanPageStep(from:type:) + 8 (PHAsset+Additions.swift:26)
+49  Core                          	0x00000001060ed220 specialized Collection.map<A, B>(_:) + 116 (AssetsProcessingService.swift:504)
+50  Core                          	0x00000001060ed220 AssetsProcessingService.scanPageStep(from:type:) + 160 (/<compiler-generated>:0)
+51  Core                          	0x00000001060ed220 0x105fa8000 + 1331744 (AssetsProcessingService.swift:504)
+52  Core                          	0x00000001060f3030 closure #1 in closure #1 in AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 16 (AssetsProcessingService.swift:486)
+53  Core                          	0x00000001060f3030 specialized autoreleasepool<A, B>(invoking:) + 28 (/<compiler-generated>:0)
+54  Core                          	0x00000001060f3030 closure #1 in AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 28 (AssetsProcessingService.swift:486)
+55  Core                          	0x00000001060f3030 partial apply for closure #1 in AssetsProcessingService.scanPages(from:type:group:scannedSimilarGroupCount:) + 48 (/<compiler-generated>:0)
+56  Core                          	0x0000000105fe6360 <deduplicated_symbol> + 28
+57  Foundation                    	0x000000019c561254 <deduplicated_symbol> + 24 (:-1)
+58  Foundation                    	0x000000019c560e44 -[NSBlockOperation main] + 96 (NSOperation.m:1565)
+59  Foundation                    	0x000000019c560f74 __NSOPERATION_IS_INVOKING_MAIN__ + 16 (NSOperation.m:2199)
+60  Foundation                    	0x000000019c560a14 -[NSOperation start] + 640 (NSOperation.m:1407)
+61  Foundation                    	0x000000019c560ddc __NSOPERATIONQUEUE_IS_STARTING_AN_OPERATION__ + 16 (NSOperation.m:2230)
+62  Foundation                    	0x000000019c560698 __NSOQSchedule_f + 164 (NSOperation.m:2241)
+63  libdispatch.dylib             	0x00000001d685a450 _dispatch_block_async_invoke2 + 148 (queue.c:598)
+64  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+65  libdispatch.dylib             	0x00000001d684f664 _dispatch_continuation_pop + 596 (queue.c:349)
+66  libdispatch.dylib             	0x00000001d684ecd8 _dispatch_async_redirect_invoke + 580 (queue.c:873)
+67  libdispatch.dylib             	0x00000001d685cf48 _dispatch_root_queue_drain + 364 (queue.c:7409)
+68  libdispatch.dylib             	0x00000001d685d6fc _dispatch_worker_thread2 + 180 (queue.c:7487)
+69  libsystem_pthread.dylib       	0x00000001f9cc337c _pthread_wqthread + 232 (pthread.c:2709)
+70  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 25 name:
+Thread 25:
+0   libsystem_kernel.dylib        	0x0000000247035c68 semaphore_timedwait_trap + 8 (:-1)
+1   libdispatch.dylib             	0x00000001d687f6c4 _dispatch_sema4_timedwait + 64 (lock.c:154)
+2   libdispatch.dylib             	0x00000001d684ce88 _dispatch_semaphore_wait_slow + 76 (semaphore.c:116)
+3   libdispatch.dylib             	0x00000001d685cd40 _dispatch_worker_thread + 324 (queue.c:7597)
+4   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+5   libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 26:
+
+Thread 27:
+0   libsystem_kernel.dylib        	0x0000000247044afc __semwait_signal_nocancel + 8
+1   libsystem_c.dylib             	0x00000001aa48f27c nanosleep$NOCANCEL + 208 (nanosleep.c:104)
+2   libsystem_c.dylib             	0x00000001aa48f150 sleep$NOCANCEL + 52 (sleep.c:62)
+3   libdispatch.dylib             	0x00000001d684a9a4 _dispatch_temporary_resource_shortage + 20 (init.c:1504)
+4   libdispatch.dylib             	0x00000001d684b958 _os_object_alloc_realized + 40 (object.m:103)
+5   libxpc.dylib                  	0x00000001b2c830d8 xpc_dictionary_create + 48 (dictionary.c:1720)
+6   libxpc.dylib                  	0x00000001b2c97cb0 xpc_create_from_plist_with_string_cache + 2440 (plist.c:857)
+7   Network                       	0x000000019d877f7c nw_path_bridge_config_agent_dns_copy_resolver_config + 32 (path_evaluation.cpp:5925)
+8   Network                       	0x000000019d828e44 PathProperties.snapshotAgents() + 3180 (PathProperties.swift:2117)
+9   Network                       	0x000000019d8a14d0 PathProperties.snapshotPath() + 88 (PathProperties.swift:1335)
+10  Network                       	0x000000019d8a18d8 _nw_path_update_is_viableTm + 80
+11  Network                       	0x000000019d9555d8 nw_path_necp_update_evaluator(NWConcrete_nw_path_evaluator*, unsigned char const*, unsigned long, bool) + 756 (path_evaluation.cpp:1109)
+12  Network                       	0x000000019d8d0738 nw_path_necp_check_for_updates(NSObject<OS_nw_context>*, unsigned char (*) [16], unsigned int) + 3452 (path_evaluation.cpp:1273)
+13  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+14  libdispatch.dylib             	0x00000001d684f664 _dispatch_continuation_pop + 596 (queue.c:349)
+15  libdispatch.dylib             	0x00000001d6862528 _dispatch_source_latch_and_call + 396 (source.c:601)
+16  libdispatch.dylib             	0x00000001d68611fc _dispatch_source_invoke + 844 (source.c:966)
+17  libdispatch.dylib             	0x00000001d6855288 _dispatch_workloop_invoke + 1612 (queue.c:4761)
+18  libdispatch.dylib             	0x00000001d685e3ec _dispatch_root_queue_drain_deferred_wlh + 292 (queue.c:7265)
+19  libdispatch.dylib             	0x00000001d685dce4 _dispatch_workloop_worker_thread + 692 (queue.c:6859)
+20  libsystem_pthread.dylib       	0x00000001f9cc33b8 _pthread_wqthread + 292 (pthread.c:2696)
+21  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 28:
+
+Thread 29:
+
+Thread 30:
+
+Thread 31:
+
+Thread 32:
+0   libsystem_kernel.dylib        	0x0000000247035cd4 mach_msg2_trap + 8 (:-1)
+1   libsystem_kernel.dylib        	0x00000002470392f8 mach_msg2_internal + 76 (mach_msg.c:201)
+2   libsystem_kernel.dylib        	0x0000000247039214 mach_msg_overwrite + 428 (mach_msg.c:0)
+3   libsystem_kernel.dylib        	0x000000024703905c mach_msg + 24 (mach_msg.c:323)
+4   libdispatch.dylib             	0x00000001d6865e84 _dispatch_mach_send_and_wait_for_reply + 548 (mach.c:1989)
+5   libdispatch.dylib             	0x00000001d6866224 dispatch_mach_send_with_result_and_wait_for_reply + 60 (mach.c:2026)
+6   libxpc.dylib                  	0x00000001b2c7cde8 xpc_connection_send_message_with_reply_sync + 256 (connection.c:4079)
+7   Foundation                    	0x000000019c5718f4 __NSXPCCONNECTION_IS_WAITING_FOR_A_SYNCHRONOUS_REPLY__ + 16 (NSXPCConnection.m:223)
+8   Foundation                    	0x000000019cfa6b84 -[NSXPCConnection _sendInvocation:orArguments:count:methodSignature:selector:withProxy:] + 2100 (NSXPCConnection.m:1674)
+9   Foundation                    	0x000000019cfa6180 -[NSXPCConnection _sendSelector:withProxy:arg1:arg2:] + 128 (NSXPCConnection.m:1302)
+10  Foundation                    	0x000000019c56396c _NSXPCDistantObjectSimpleMessageSend2 + 68 (NSXPCDistantObject.m:272)
+11  CoreData                      	0x00000001a146af9c __48-[NSXPCStoreConnection sendMessage:store:error:]_block_invoke + 220 (NSXPCStoreConnection.m:223)
+12  CoreData                      	0x00000001a146b5d4 __39-[NSXPCStoreConnection performAndWait:]_block_invoke + 36 (NSXPCStoreConnection.m:277)
+13  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+14  libdispatch.dylib             	0x00000001d685a8c0 _dispatch_lane_barrier_sync_invoke_and_complete + 56 (queue.c:1128)
+15  CoreData                      	0x00000001a146a85c -[NSXPCStoreConnection performAndWait:] + 188 (NSXPCStoreConnection.m:275)
+16  CoreData                      	0x00000001a146ab2c -[NSXPCStoreConnection sendMessage:store:error:] + 316 (NSXPCStoreConnection.m:217)
+17  CoreData                      	0x00000001a146b568 -[NSXPCStoreConnection sendMessageWithContext:] + 48 (NSXPCStoreConnection.m:267)
+18  CoreData                      	0x00000001a1610b84 __54-[NSXPCStoreConnectionManager sendMessageWithContext:]_block_invoke + 96 (NSXPCStoreConnectionManager.m:208)
+19  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+20  libdispatch.dylib             	0x00000001d685aec0 _dispatch_sync_invoke_and_complete + 56 (queue.c:1114)
+21  CoreData                      	0x00000001a1610b14 -[NSXPCStoreConnectionManager sendMessageWithContext:] + 112 (NSXPCStoreConnectionManager.m:194)
+22  CoreData                      	0x00000001a1448d98 -[NSXPCStore sendMessage:fromContext:interrupts:error:] + 356 (NSXPCStore.m:498)
+23  CoreData                      	0x00000001a144b184 -[NSXPCStore executeFetchRequest:withContext:error:] + 884 (NSXPCStore.m:1198)
+24  CoreData                      	0x00000001a144ca4c -[NSXPCStore executeRequest:withContext:error:] + 1564 (NSXPCStore.m:1802)
+25  CoreData                      	0x00000001a1525e30 __65-[NSPersistentStoreCoordinator executeRequest:withContext:error:]_block_invoke.494 + 4660 (NSPersistentStoreCoordinator.m:2933)
+26  CoreData                      	0x00000001a151ad70 -[NSPersistentStoreCoordinator _routeHeavyweightBlock:] + 268 (NSPersistentStoreCoordinator.m:648)
+27  CoreData                      	0x00000001a1524310 -[NSPersistentStoreCoordinator executeRequest:withContext:error:] + 1184 (NSPersistentStoreCoordinator.m:2707)
+28  CoreData                      	0x00000001a14e0dec -[NSManagedObjectContext executeFetchRequest:error:] + 752 (NSManagedObjectContext.m:2238)
+29  PhotoLibraryServices          	0x00000001b79e9700 -[PLManagedObjectContext _pl_executeFetchRequest:error:] + 264 (PLManagedObjectContext.m:501)
+30  PhotoLibraryServices          	0x00000001b79e8624 -[PLManagedObjectContext executeFetchRequest:error:] + 88 (PLManagedObjectContext.m:757)
+31  Photos                        	0x00000001b82ab03c __98-[PHPhotoLibrary fetchDictionariesByPHClassForOIDs:propertyHint:includeTrash:overrideWithPHClass:]_block_invoke + 492 (PHPhotoLibrary.m:2631)
+32  PhotoLibraryServices          	0x00000001b79e94d4 __53-[PLManagedObjectContext _directPerformBlockAndWait:]_block_invoke + 48 (PLManagedObjectContext.m:518)
+33  CoreData                      	0x00000001a13bda4c developerSubmittedBlockToNSManagedObjectContextPerform + 228 (NSManagedObjectContext.m:3981)
+34  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+35  libdispatch.dylib             	0x00000001d685a8c0 _dispatch_lane_barrier_sync_invoke_and_complete + 56 (queue.c:1128)
+36  CoreData                      	0x00000001a14e559c -[NSManagedObjectContext performBlockAndWait:] + 308 (NSManagedObjectContext.m:4105)
+37  PhotoLibraryServices          	0x00000001b79e9488 -[PLManagedObjectContext _directPerformBlockAndWait:] + 144 (PLManagedObjectContext.m:516)
+38  PhotoLibraryServices          	0x00000001b79e7aa8 -[PLManagedObjectContext performBlockAndWait:] + 196 (PLManagedObjectContext.m:967)
+39  Photos                        	0x00000001b82aadd0 -[PHPhotoLibrary fetchDictionariesByPHClassForOIDs:propertyHint:includeTrash:overrideWithPHClass:] + 580 (PHPhotoLibrary.m:2615)
+40  Photos                        	0x00000001b82aa988 -[PHPhotoLibrary fetchPHObjectsForOIDs:propertyHint:includeTrash:overrideResultsWithClass:] + 396 (PHPhotoLibrary.m:2671)
+41  Photos                        	0x00000001b83c5850 -[PHBatchFetchingArray _phObjectsForOIDs:] + 196 (PHBatchFetchingArray.m:336)
+42  Photos                        	0x00000001b83c4f74 -[PHBatchFetchingArray _fetchObjectsInBatchNumber:] + 436 (PHBatchFetchingArray.m:449)
+43  Photos                        	0x00000001b83c52e4 __67-[PHBatchFetchingArray _batchForBatchNumber:shouldUpdateLastBatch:]_block_invoke + 48 (PHBatchFetchingArray.m:418)
+44  PhotoLibraryServicesCore      	0x00000001c6148d90 __27-[PLLazyObject objectValue]_block_invoke + 84 (PLLazyObject.m:60)
+45  PhotoLibraryServicesCore      	0x00000001c6148c40 PLResultWithUnfairLock + 56 (PLLockHelpers.m:31)
+46  PhotoLibraryServicesCore      	0x00000001c6148d1c -[PLLazyObject objectValue] + 100 (PLLazyObject.m:58)
+47  Photos                        	0x00000001b83c5204 -[PHBatchFetchingArray _batchForBatchNumber:shouldUpdateLastBatch:] + 436 (PHBatchFetchingArray.m:424)
+48  Photos                        	0x00000001b83c5354 -[PHBatchFetchingArray _phObjectAtIndex:] + 60 (PHBatchFetchingArray.m:404)
+49  Photos                        	0x00000001b83c6274 -[PHBatchFetchingArray objectAtIndex:] + 40 (PHBatchFetchingArray.m:204)
+50  Photos                        	0x00000001b8178e60 -[PHFetchResult firstObject] + 32 (PHFetchResult.m:982)
+51  Core                          	0x00000001061027dc PhotoGalleryDataService.loadAsset(with:) + 16 (PhotoGalleryDataService.swift:123)
+52  Core                          	0x00000001061027dc PhotoGalleryDataService.getImage(by:deliveryModel:contentMode:size:resizeMode:) + 16 (PhotoGalleryDataService.swift:282)
+53  Core                          	0x00000001061027dc specialized PhotoGalleryDataService.getAnalyzableImage(with:) + 496 (PhotoGalleryDataService.swift:301)
+54  Core                          	0x00000001060f4400 PhotoGalleryDataService.getAnalyzableImage(with:) + 4 (/<compiler-generated>:0)
+55  Core                          	0x00000001060f4400 PhotoGalleryDataService.getAnalyzableImage(with:) + 8 (PhotoGalleryDataService.swift:297)
+56  Core                          	0x00000001060f4400 CGAsset.analyzImage.getter + 24 (CGAsset.swift:73)
+57  Core                          	0x00000001060f4400 closure #1 in closure #1 in closure #1 in BlurredService.scanBlurredPhotos(in:) + 24 (BlurredService.swift:72)
+58  Core                          	0x00000001060f4400 specialized autoreleasepool<A, B>(invoking:) + 32 (/<compiler-generated>:0)
+59  Core                          	0x00000001060f4400 closure #1 in closure #1 in BlurredService.scanBlurredPhotos(in:) + 68 (BlurredService.swift:71)
+60  Core                          	0x00000001060f4400 specialized autoreleasepool<A, B>(invoking:) + 192 (/<compiler-generated>:0)
+61  Core                          	0x00000001060f4400 closure #1 in BlurredService.scanBlurredPhotos(in:) + 244 (BlurredService.swift:68)
+62  Core                          	0x0000000105fe6360 <deduplicated_symbol> + 28
+63  Foundation                    	0x000000019c561254 <deduplicated_symbol> + 24 (:-1)
+64  Foundation                    	0x000000019c560e44 -[NSBlockOperation main] + 96 (NSOperation.m:1565)
+65  Foundation                    	0x000000019c560f74 __NSOPERATION_IS_INVOKING_MAIN__ + 16 (NSOperation.m:2199)
+66  Foundation                    	0x000000019c560a14 -[NSOperation start] + 640 (NSOperation.m:1407)
+67  Foundation                    	0x000000019c560ddc __NSOPERATIONQUEUE_IS_STARTING_AN_OPERATION__ + 16 (NSOperation.m:2230)
+68  Foundation                    	0x000000019c560698 __NSOQSchedule_f + 164 (NSOperation.m:2241)
+69  libdispatch.dylib             	0x00000001d685a450 _dispatch_block_async_invoke2 + 148 (queue.c:598)
+70  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+71  libdispatch.dylib             	0x00000001d684f664 _dispatch_continuation_pop + 596 (queue.c:349)
+72  libdispatch.dylib             	0x00000001d684ecd8 _dispatch_async_redirect_invoke + 580 (queue.c:873)
+73  libdispatch.dylib             	0x00000001d685cf48 _dispatch_root_queue_drain + 364 (queue.c:7409)
+74  libdispatch.dylib             	0x00000001d685d6fc _dispatch_worker_thread2 + 180 (queue.c:7487)
+75  libsystem_pthread.dylib       	0x00000001f9cc337c _pthread_wqthread + 232 (pthread.c:2709)
+76  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 33:
+
+Thread 34:
+0   CoreFoundation                	0x000000019ee783dc _CFRuntimeCreateInstance + 660 (CFRuntime.c:0)
+1   CoreFoundation                	0x000000019ee81bf4 __CFStringCreateImmutableFunnel3 + 2188 (CFString.c:1839)
+2   Foundation                    	0x000000019c572ba8 _getStringAtMarker + 432 (NSXPCCoder_Serialization.m:781)
+3   Foundation                    	0x000000019c572c58 _NSXPCSerializationStringForObject + 56 (NSXPCCoder_Serialization.m:1051)
+4   Foundation                    	0x000000019c55e3cc _decodeObject + 1452 (NSXPCCoder.m:1040)
+5   Foundation                    	0x000000019cfb0244 __44-[NSXPCDecoder _decodeArrayOfObjectsForKey:]_block_invoke + 52 (NSXPCCoder.m:1455)
+6   Foundation                    	0x000000019c573274 _NSXPCSerializationIterateArrayObject + 196 (NSXPCCoder_Serialization.m:1334)
+7   Foundation                    	0x000000019cfb01dc -[NSXPCDecoder _decodeArrayOfObjectsForKey:] + 236 (NSXPCCoder.m:1453)
+8   Foundation                    	0x000000019ce36394 -[NSDictionary(NSDictionary) initWithCoder:] + 176 (NSDictionary_Foundation.m:92)
+9   Foundation                    	0x000000019c55e33c _decodeObject + 1308 (NSXPCCoder.m:1126)
+10  Foundation                    	0x000000019c562c28 _decodeObjectAfterSettingAllowListForKey + 120 (NSXPCCoder.m:1156)
+11  Foundation                    	0x000000019cfaf93c -[NSXPCDecoder decodeObjectOfClasses:forKey:] + 52 (NSXPCCoder.m:1245)
+12  CoreServices                  	0x000000019d5778a4 -[NSCoder(LaunchServicesAdditions) ls_decodeObjectOfClasses:forKey:] + 152 (NSCoder+LaunchServicesAdditions.m:191)
+13  CoreServices                  	0x000000019d577ca8 -[NSCoder(LaunchServicesAdditions) ls_decodeDictionaryWithKeysOfClass:valuesOfClasses:forKey:] + 160 (NSCoder+LaunchServicesAdditions.m:238)
+14  CoreServices                  	0x000000019d54748c -[LSRecord initWithCoder:] + 136 (LSRecord.mm:564)
+15  Foundation                    	0x000000019c55e33c _decodeObject + 1308 (NSXPCCoder.m:1126)
+16  Foundation                    	0x000000019cfb0244 __44-[NSXPCDecoder _decodeArrayOfObjectsForKey:]_block_invoke + 52 (NSXPCCoder.m:1455)
+17  Foundation                    	0x000000019c573274 _NSXPCSerializationIterateArrayObject + 196 (NSXPCCoder_Serialization.m:1334)
+18  Foundation                    	0x000000019cfb01dc -[NSXPCDecoder _decodeArrayOfObjectsForKey:] + 236 (NSXPCCoder.m:1453)
+19  Foundation                    	0x000000019cee2ccc -[NSSet(NSSet) initWithCoder:] + 152 (NSSet_Foundation.m:76)
+20  Foundation                    	0x000000019c55e33c _decodeObject + 1308 (NSXPCCoder.m:1126)
+21  Foundation                    	0x000000019cfb0244 __44-[NSXPCDecoder _decodeArrayOfObjectsForKey:]_block_invoke + 52 (NSXPCCoder.m:1455)
+22  Foundation                    	0x000000019c573274 _NSXPCSerializationIterateArrayObject + 196 (NSXPCCoder_Serialization.m:1334)
+23  Foundation                    	0x000000019cfb01dc -[NSXPCDecoder _decodeArrayOfObjectsForKey:] + 236 (NSXPCCoder.m:1453)
+24  Foundation                    	0x000000019ce3637c -[NSDictionary(NSDictionary) initWithCoder:] + 152 (NSDictionary_Foundation.m:89)
+25  Foundation                    	0x000000019c55e33c _decodeObject + 1308 (NSXPCCoder.m:1126)
+26  Foundation                    	0x000000019c562c28 _decodeObjectAfterSettingAllowListForKey + 120 (NSXPCCoder.m:1156)
+27  Foundation                    	0x000000019cfaf93c -[NSXPCDecoder decodeObjectOfClasses:forKey:] + 52 (NSXPCCoder.m:1245)
+28  CoreServices                  	0x000000019d5778a4 -[NSCoder(LaunchServicesAdditions) ls_decodeObjectOfClasses:forKey:] + 152 (NSCoder+LaunchServicesAdditions.m:191)
+29  CoreServices                  	0x000000019d577ca8 -[NSCoder(LaunchServicesAdditions) ls_decodeDictionaryWithKeysOfClass:valuesOfClasses:forKey:] + 160 (NSCoder+LaunchServicesAdditions.m:238)
+30  CoreServices                  	0x000000019d54748c -[LSRecord initWithCoder:] + 136 (LSRecord.mm:564)
+31  CoreServices                  	0x000000019d4b5460 -[LSBundleRecord initWithCoder:] + 84 (LSBundleRecord.mm:1216)
+32  CoreServices                  	0x000000019d47213c -[LSApplicationRecord initWithCoder:] + 76 (LSApplicationRecord.mm:1600)
+33  Foundation                    	0x000000019c55e33c _decodeObject + 1308 (NSXPCCoder.m:1126)
+34  Foundation                    	0x000000019c562c28 _decodeObjectAfterSettingAllowListForKey + 120 (NSXPCCoder.m:1156)
+35  Foundation                    	0x000000019cfaf93c -[NSXPCDecoder decodeObjectOfClasses:forKey:] + 52 (NSXPCCoder.m:1245)
+36  CoreServices                  	0x000000019d5778a4 -[NSCoder(LaunchServicesAdditions) ls_decodeObjectOfClasses:forKey:] + 152 (NSCoder+LaunchServicesAdditions.m:191)
+37  CoreServices                  	0x000000019d5777d4 -[NSCoder(LaunchServicesAdditions) ls_decodeObjectOfClass:forKey:] + 88 (NSCoder+LaunchServicesAdditions.m:176)
+38  CoreServices                  	0x000000019d46c96c -[LSApplicationProxy initWithCoder:] + 104 (LSApplicationProxy.m:1169)
+39  Foundation                    	0x000000019c55e33c _decodeObject + 1308 (NSXPCCoder.m:1126)
+40  Foundation                    	0x000000019cfaf7e0 -[NSXPCDecoder _decodeObjectOfClasses:atObject:] + 164 (NSXPCCoder.m:1222)
+41  Foundation                    	0x000000019c572074 _NSXPCSerializationDecodeTypedObjCValuesFromArray + 840 (NSXPCCoder_InvocationSerialization.m:402)
+42  Foundation                    	0x000000019c571ab4 _NSXPCSerializationDecodeInvocationArgumentArray + 408 (NSXPCCoder_InvocationSerialization.m:537)
+43  Foundation                    	0x000000019cfafcf8 -[NSXPCDecoder __decodeXPCObject:allowingSimpleMessageSend:outInvocation:outArguments:outArgumentsMaxCount:outMethodSignature:outSelector:isReply:replySelector:] + 688 (NSXPCCoder.m:1365)
+44  Foundation                    	0x000000019cfafa1c -[NSXPCDecoder _decodeReplyFromXPCObject:forSelector:] + 76 (NSXPCCoder.m:1259)
+45  Foundation                    	0x000000019cfa3230 -[NSXPCConnection _decodeAndInvokeReplyBlockWithEvent:sequence:replyInfo:] + 248 (NSXPCConnection.m:259)
+46  Foundation                    	0x000000019cfa70b4 __88-[NSXPCConnection _sendInvocation:orArguments:count:methodSignature:selector:withProxy:]_block_invoke_5 + 188 (NSXPCConnection.m:1658)
+47  Foundation                    	0x000000019cfa6bc4 -[NSXPCConnection _sendInvocation:orArguments:count:methodSignature:selector:withProxy:] + 2164 (NSXPCConnection.m:1675)
+48  Foundation                    	0x000000019cfa60c8 -[NSXPCConnection _sendSelector:withProxy:arg1:] + 116 (NSXPCConnection.m:1295)
+49  Foundation                    	0x000000019c58a180 _NSXPCDistantObjectSimpleMessageSend1 + 60 (NSXPCDistantObject.m:262)
+50  CoreServices                  	0x000000019d430588 +[LSBundleProxy bundleProxyForCurrentProcess] + 344 (LSBundleProxy.m:336)
+51  Foundation                    	0x000000019c8172a4 -[NSBundle appStoreReceiptURL] + 84 (NSBundle.m:1276)
+52  Core                          	0x000000010649b980 +[APMAEU appStoreRURL] + 160
+53  Core                          	0x000000010649bc0c +[APMAEU isASRS] + 28
+54  Core                          	0x000000010649b9fc +[APMAEU isFAS] + 60
+55  Core                          	0x00000001064e91b0 -[APMMeasurement(Event) createRawEventMetadataWithUserAttributes:] + 224
+56  Core                          	0x00000001064eb2e4 -[APMMeasurement(Event) writeEvent:isPublicEvent:isRealtime:] + 632
+57  Core                          	0x00000001064e908c __57-[APMMeasurement(Event) writeFilteredEventOnWorkerQueue:]_block_invoke + 488
+58  Core                          	0x0000000106543a34 -[APMSqliteStore performTransactionWithError:block:] + 160
+59  Core                          	0x00000001064af110 -[APMDatabase performTransaction:] + 40
+60  Core                          	0x00000001064e8de0 -[APMMeasurement(Event) writeFilteredEventOnWorkerQueue:] + 440
+61  Core                          	0x00000001064e8b48 -[APMMeasurement(Event) writeEventOnWorkerQueue:] + 492
+62  Core                          	0x00000001064e8720 -[APMMeasurement(Event) handleEventOnWorkerQueue:] + 712
+63  Core                          	0x00000001064dd57c -[APMMeasurement logEventOnWorkerQueue:notifyEventListeners:] + 64
+64  Core                          	0x00000001064dd408 -[APMMeasurement logEventOnWorkerQueueWithOrigin:isPublicEvent:name:parameters:timestamp:enabled:ignoreEnabled:ignoreInterceptor:interceptor:addedScreenParameters:] + 296
+65  Core                          	0x00000001064dd238 __151-[APMMeasurement logEventWithOrigin:isPublicEvent:name:parameters:timestamp:enabled:ignoreEnabled:ignoreInterceptor:interceptor:addedScreenParameters:]_block_invoke + 60
+66  Core                          	0x000000010653acec __51-[APMScheduler scheduleOnWorkerQueueBlockID:block:]_block_invoke + 44
+67  libdispatch.dylib             	0x00000001d684aadc _dispatch_call_block_and_release + 32 (init.c:1575)
+68  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+69  libdispatch.dylib             	0x00000001d6853468 _dispatch_lane_serial_drain + 740 (queue.c:3991)
+70  libdispatch.dylib             	0x00000001d6853f44 _dispatch_lane_invoke + 388 (queue.c:4082)
+71  libdispatch.dylib             	0x00000001d685e3ec _dispatch_root_queue_drain_deferred_wlh + 292 (queue.c:7265)
+72  libdispatch.dylib             	0x00000001d685dce4 _dispatch_workloop_worker_thread + 692 (queue.c:6859)
+73  libsystem_pthread.dylib       	0x00000001f9cc33b8 _pthread_wqthread + 292 (pthread.c:2696)
+74  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 35:
+0   CoreFoundation                	0x000000019ee7a244 CF_IS_OBJC + 4 (CFRuntime.c:0)
+1   CoreFoundation                	0x000000019ee76660 CFNumberGetValue + 252 (CFNumber.c:1434)
+2   CoreMedia                     	0x00000001b2ae0c90 figCFDictionaryGetNumberIfPresent + 128 (FigCFUtilities.c:1585)
+3   VideoToolbox                  	0x00000001ab6b357c getPixelFormatCharacteristics + 96 (VTPixelTransferGraph.c:323)
+4   VideoToolbox                  	0x00000001ab87fd1c VTMetalTransferSessionInitializeDestinationArray + 204 (VTMetalTransferSession.m:4909)
+5   VideoToolbox                  	0x00000001ab6b4124 VTPixelTransferGraphBuildChain + 2184 (VTPixelTransferGraph.c:2456)
+6   VideoToolbox                  	0x00000001ab976b68 vtPixelTransferSession_BuildChain + 6096 (VTPixelTransferSession.c:44558)
+7   VideoToolbox                  	0x00000001ab51238c _VTPixelTransferSessionTransferImage + 1584 (VTPixelTransferSession.c:46161)
+8   VideoToolbox                  	0x00000001ab4e41c8 VTPixelTransferSessionTransferImage + 476 (VTPixelTransferSession.c:46491)
+9   CMPhoto                       	0x00000001c1283578 _callbackDataProviderGetBytePointer + 268 (CMPhotoPixelBufferUtilities.c:237)
+10  CoreGraphics                  	0x000000019fc2c898 CGDataProviderRetainBytePtr + 140 (CGDataProvider.c:863)
+11  CoreGraphics                  	0x000000019fc4d2ac CGDataProviderCopyData + 48 (CGDataProviderData.c:518)
+12  ImageIO                       	0x00000001a1c18f8c IIOImagePixelDataProvider::getBytesDataProvider(void*, unsigned long) + 412 (CGImagePixelDataProvider.cpp:1027)
+13  ImageIO                       	0x00000001a1c0ecb8 PNGWritePlugin::writePNG(IIOImagePixelDataProvider*, IIODictionary*) + 1128 (PNG_writePlugin.cpp:392)
+14  ImageIO                       	0x00000001a1c04800 PNGWritePlugin::writeAll() + 952 (PNG_writePlugin.cpp:1670)
+15  ImageIO                       	0x00000001a1c043fc PNGWritePlugin::WriteProc(void*, void*, void*, void*) + 200 (PNG_writePlugin.cpp:1744)
+16  ImageIO                       	0x00000001a1c0407c IIOImageDestination::finalizeDestination(unsigned long long*) + 820 (CGImageDestination.cpp:4106)
+17  ImageIO                       	0x00000001a1c03c70 CGImageDestinationFinalize + 196 (CGImageDestination.cpp:5682)
+18  UIKitCore                     	0x00000001a4a67650 _UIImageDataRepresentation + 440 (UIImage_Writing.m:77)
+19  Core                          	0x000000010601325c specialized SimilarityHash12.__allocating_init(with:type:) + 72 (SimilarityHash12.swift:42)
+20  Core                          	0x00000001060f4434 SimilarityHash12.__allocating_init(with:type:) + 8 (/<compiler-generated>:0)
+21  Core                          	0x00000001060f4434 UIImage.getSimilarityHash(for:) + 8 (AnySimilarityHash.swift:27)
+22  Core                          	0x00000001060f4434 closure #1 in closure #1 in BlurredService.scanBlurredPhotos(in:) + 8 (BlurredService.swift:82)
+23  Core                          	0x00000001060f4434 specialized autoreleasepool<A, B>(invoking:) + 8 (/<compiler-generated>:0)
+24  Core                          	0x00000001060f4434 closure #1 in BlurredService.scanBlurredPhotos(in:) + 296 (BlurredService.swift:68)
+25  Core                          	0x0000000105fe6360 <deduplicated_symbol> + 28
+26  Foundation                    	0x000000019c561254 <deduplicated_symbol> + 24 (:-1)
+27  Foundation                    	0x000000019c560e44 -[NSBlockOperation main] + 96 (NSOperation.m:1565)
+28  Foundation                    	0x000000019c560f74 __NSOPERATION_IS_INVOKING_MAIN__ + 16 (NSOperation.m:2199)
+29  Foundation                    	0x000000019c560a14 -[NSOperation start] + 640 (NSOperation.m:1407)
+30  Foundation                    	0x000000019c560ddc __NSOPERATIONQUEUE_IS_STARTING_AN_OPERATION__ + 16 (NSOperation.m:2230)
+31  Foundation                    	0x000000019c560698 __NSOQSchedule_f + 164 (NSOperation.m:2241)
+32  libdispatch.dylib             	0x00000001d685a450 _dispatch_block_async_invoke2 + 148 (queue.c:598)
+33  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+34  libdispatch.dylib             	0x00000001d684f664 _dispatch_continuation_pop + 596 (queue.c:349)
+35  libdispatch.dylib             	0x00000001d684ed90 _dispatch_async_redirect_invoke + 764 (queue.c:873)
+36  libdispatch.dylib             	0x00000001d685cf48 _dispatch_root_queue_drain + 364 (queue.c:7409)
+37  libdispatch.dylib             	0x00000001d685d6fc _dispatch_worker_thread2 + 180 (queue.c:7487)
+38  libsystem_pthread.dylib       	0x00000001f9cc337c _pthread_wqthread + 232 (pthread.c:2709)
+39  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 36:
+
+Thread 37:
+
+Thread 38 name:
+Thread 38:
+0   libsystem_kernel.dylib        	0x0000000247035c68 semaphore_timedwait_trap + 8 (:-1)
+1   libdispatch.dylib             	0x00000001d687f6c4 _dispatch_sema4_timedwait + 64 (lock.c:154)
+2   libdispatch.dylib             	0x00000001d684ce88 _dispatch_semaphore_wait_slow + 76 (semaphore.c:116)
+3   libdispatch.dylib             	0x00000001d685cd40 _dispatch_worker_thread + 324 (queue.c:7597)
+4   libsystem_pthread.dylib       	0x00000001f9cc644c _pthread_start + 136 (pthread.c:931)
+5   libsystem_pthread.dylib       	0x00000001f9cc28cc thread_start + 8 (:-1)
+
+Thread 39:
+
+Thread 40:
+
+Thread 41 Crashed:
+0   libsystem_kernel.dylib        	0x00000002470400cc __pthread_kill + 8 (:-1)
+1   libsystem_pthread.dylib       	0x00000001f9cc9810 pthread_kill + 268 (pthread.c:1721)
+2   libsystem_c.dylib             	0x00000001aa4f0f1c abort + 124 (abort.c:122)
+3   libswiftCore.dylib            	0x000000019bfdff60 swift::fatalErrorv(unsigned int, char const*, char*) + 144 (Errors.cpp:443)
+4   libswiftCore.dylib            	0x000000019bfdff80 swift::fatalError(unsigned int, char const*, ...) + 32 (Errors.cpp:451)
+5   libswiftCore.dylib            	0x000000019bfe01b0 swift::swift_abortAllocationFailure(unsigned long, unsigned long) + 36 (Errors.cpp:550)
+6   libswiftCore.dylib            	0x000000019bfe43ac swift::swift_slowAllocTyped(unsigned long, unsigned long, unsigned long long) + 132 (Heap.cpp:121)
+7   libswiftCore.dylib            	0x000000019bfe4754 swift_allocObject + 136 (HeapObject.cpp:245)
+8   libswiftCore.dylib            	0x000000019c2dc2e8 _allocateStringStorage(codeUnitCapacity:) + 172 (StringStorage.swift:239)
+9   libswiftCore.dylib            	0x000000019c3f6158 specialized static __StringStorage.create(initializingFrom:codeUnitCapacity:isASCII:) + 52 (StringStorage.swift:395)
+10  libswiftCore.dylib            	0x000000019c3f6504 specialized static String._uncheckedFromUTF8(_:isASCII:) + 40
+11  libswiftCore.dylib            	0x000000019c3f6240 specialized static String._copying(_:) + 164 (StringCreate.swift:315)
+12  libswiftCore.dylib            	0x000000019c3f9c70 Substring.description.getter + 84
+13  Foundation                    	0x000000019c5ab284 specialized _ProcessInfo.environment.getter + 512 (ProcessInfo.swift:73)
+14  Foundation                    	0x000000019c5ab644 @objc _NSSwiftProcessInfo.environment.getter + 16 (<compiler-generated>:41)
+15  AppLovinSDK                   	0x0000000104e5605c 0x104d3c000 + 1155164
+16  AppLovinSDK                   	0x0000000104e084e8 0x104d3c000 + 836840
+17  AppLovinSDK                   	0x0000000104d828b8 0x104d3c000 + 288952
+18  CoreFoundation                	0x000000019efc9b7c __handleUncaughtException + 660 (NSException.m:367)
+19  libobjc.A.dylib               	0x000000019beb7f1c _objc_terminate() + 144 (objc-exception.mm:495)
+20  libc++abi.dylib               	0x000000019bfb6bdc std::__terminate(void (*)()) + 16 (cxa_handlers.cpp:59)
+21  libc++abi.dylib               	0x000000019bfba314 __cxxabiv1::failed_throw(__cxxabiv1::__cxa_exception*) + 88 (cxa_exception.cpp:152)
+22  libc++abi.dylib               	0x000000019bfba2bc __cxa_throw + 92 (cxa_exception.cpp:299)
+23  libobjc.A.dylib               	0x000000019beb592c objc_exception_throw + 448 (objc-exception.mm:385)
+24  CoreFoundation                	0x000000019efda560 couldNotInstantiate + 104 (NSObject.m:63)
+25  libobjc.A.dylib               	0x000000019be87b88 objc_alloc_init + 36 (NSObject.mm:2155)
+26  Foundation                    	0x000000019cf3ed64 +[NSJSONSerialization dataWithJSONObject:options:error:] + 92 (NSJSONSerialization.m:3203)
+27  Clean-Gallery                 	0x00000001031aa93c outlined init with copy of AppDistributor? + 44348
+28  Clean-Gallery                 	0x00000001031bf558 __copy_helper_block_e8_32s40s48s56s64s72w + 26808
+29  Clean-Gallery                 	0x00000001031b87e0 outlined init with copy of AppDistributor? + 101344
+30  libdispatch.dylib             	0x00000001d684aadc _dispatch_call_block_and_release + 32 (init.c:1575)
+31  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+32  libdispatch.dylib             	0x00000001d6853468 _dispatch_lane_serial_drain + 740 (queue.c:3991)
+33  libdispatch.dylib             	0x00000001d6853f44 _dispatch_lane_invoke + 388 (queue.c:4082)
+34  libdispatch.dylib             	0x00000001d685e3ec _dispatch_root_queue_drain_deferred_wlh + 292 (queue.c:7265)
+35  libdispatch.dylib             	0x00000001d685dce4 _dispatch_workloop_worker_thread + 692 (queue.c:6859)
+36  libsystem_pthread.dylib       	0x00000001f9cc33b8 _pthread_wqthread + 292 (pthread.c:2696)
+37  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 42:
+0   ???                           	0x00000001fdc99de0 0x0 + 8552816096
+1   libdispatch.dylib             	0x00000001d685a450 _dispatch_block_async_invoke2 + 148 (queue.c:598)
+2   libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+3   libdispatch.dylib             	0x00000001d6853468 _dispatch_lane_serial_drain + 740 (queue.c:3991)
+4   libdispatch.dylib             	0x00000001d6853f78 _dispatch_lane_invoke + 440 (queue.c:4082)
+5   libdispatch.dylib             	0x00000001d685e3ec _dispatch_root_queue_drain_deferred_wlh + 292 (queue.c:7265)
+6   libdispatch.dylib             	0x00000001d685dce4 _dispatch_workloop_worker_thread + 692 (queue.c:6859)
+7   libsystem_pthread.dylib       	0x00000001f9cc33b8 _pthread_wqthread + 292 (pthread.c:2696)
+8   libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 43:
+0   CoreFoundation                	0x000000019f035e4c 0x19ee75000 + 1838668
+1   CoreFoundation                	0x000000019ee81084 __CFAllocatorSystemDeallocate + 40 (CFBase.c:340)
+2   CoreFoundation                	0x000000019ee7798c _CFRelease + 1224 (CFRuntime.c:0)
+3   CoreFoundation                	0x000000019ee86b54 __RELEASE_OBJECTS_IN_THE_ARRAY__ + 116 (NSArrayM.m:116)
+4   CoreFoundation                	0x000000019ee8690c -[__NSArrayM dealloc] + 148 (NSArrayM.m:480)
+5   CoreMedia                     	0x00000001b2a44eb8 figPriorityQueueFinalize + 32 (FigPriorityQueue.c:222)
+6   CoreFoundation                	0x000000019ee775ec _CFRelease + 296 (CFRuntime.c:2229)
+7   VideoToolbox                  	0x00000001ab6b3bfc VTPixelTransferGraphBuildChain + 864 (VTPixelTransferGraph.c:2611)
+8   VideoToolbox                  	0x00000001ab976b68 vtPixelTransferSession_BuildChain + 6096 (VTPixelTransferSession.c:44558)
+9   VideoToolbox                  	0x00000001ab51238c _VTPixelTransferSessionTransferImage + 1584 (VTPixelTransferSession.c:46161)
+10  VideoToolbox                  	0x00000001ab4e41c8 VTPixelTransferSessionTransferImage + 476 (VTPixelTransferSession.c:46491)
+11  CMPhoto                       	0x00000001c1283578 _callbackDataProviderGetBytePointer + 268 (CMPhotoPixelBufferUtilities.c:237)
+12  CoreGraphics                  	0x000000019fc2c898 CGDataProviderRetainBytePtr + 140 (CGDataProvider.c:863)
+13  CoreGraphics                  	0x000000019fc4d2ac CGDataProviderCopyData + 48 (CGDataProviderData.c:518)
+14  Core                          	0x0000000106013d6c UIImage.colorHashCalculator() + 152 (UIImage+SimilarityHash.swift:22)
+15  Core                          	0x000000010601336c specialized SimilarityHash12.__allocating_init(with:type:) + 344 (SimilarityHash12.swift:43)
+16  Core                          	0x00000001060f4434 SimilarityHash12.__allocating_init(with:type:) + 8 (/<compiler-generated>:0)
+17  Core                          	0x00000001060f4434 UIImage.getSimilarityHash(for:) + 8 (AnySimilarityHash.swift:27)
+18  Core                          	0x00000001060f4434 closure #1 in closure #1 in BlurredService.scanBlurredPhotos(in:) + 8 (BlurredService.swift:82)
+19  Core                          	0x00000001060f4434 specialized autoreleasepool<A, B>(invoking:) + 8 (/<compiler-generated>:0)
+20  Core                          	0x00000001060f4434 closure #1 in BlurredService.scanBlurredPhotos(in:) + 296 (BlurredService.swift:68)
+21  Core                          	0x0000000105fe6360 <deduplicated_symbol> + 28
+22  Foundation                    	0x000000019c561254 <deduplicated_symbol> + 24 (:-1)
+23  Foundation                    	0x000000019c560e44 -[NSBlockOperation main] + 96 (NSOperation.m:1565)
+24  Foundation                    	0x000000019c560f74 __NSOPERATION_IS_INVOKING_MAIN__ + 16 (NSOperation.m:2199)
+25  Foundation                    	0x000000019c560a14 -[NSOperation start] + 640 (NSOperation.m:1407)
+26  Foundation                    	0x000000019c560ddc __NSOPERATIONQUEUE_IS_STARTING_AN_OPERATION__ + 16 (NSOperation.m:2230)
+27  Foundation                    	0x000000019c560698 __NSOQSchedule_f + 164 (NSOperation.m:2241)
+28  libdispatch.dylib             	0x00000001d685a450 _dispatch_block_async_invoke2 + 148 (queue.c:598)
+29  libdispatch.dylib             	0x00000001d68647ec _dispatch_client_callout + 16 (client_callout.mm:85)
+30  libdispatch.dylib             	0x00000001d684f664 _dispatch_continuation_pop + 596 (queue.c:349)
+31  libdispatch.dylib             	0x00000001d684ed90 _dispatch_async_redirect_invoke + 764 (queue.c:873)
+32  libdispatch.dylib             	0x00000001d685cf48 _dispatch_root_queue_drain + 364 (queue.c:7409)
+33  libdispatch.dylib             	0x00000001d685d6fc _dispatch_worker_thread2 + 180 (queue.c:7487)
+34  libsystem_pthread.dylib       	0x00000001f9cc337c _pthread_wqthread + 232 (pthread.c:2709)
+35  libsystem_pthread.dylib       	0x00000001f9cc28c0 start_wqthread + 8 (:-1)
+
+Thread 44:
+
+
+Thread 41 crashed with ARM Thread State (64-bit):
+    x0: 0x0000000000000000   x1: 0x0000000000000000   x2: 0x0000000000000000   x3: 0x0000000000000000
+    x4: 0x00000000000e706b   x5: 0x000000000000001b   x6: 0x000000016d7a9120   x7: 0xfffff0003ffff800
+    x8: 0xc89c953affffec62   x9: 0xc89c953b92855c62  x10: 0x0000000000000045  x11: 0x0000000000000045
+   x12: 0x0000000000000045  x13: 0x000000043bbac230  x14: 0x00000001395f6968  x15: 0x000000043bac4000
+   x16: 0x0000000000000148  x17: 0x000000016d7ab000  x18: 0x0000000000000000  x19: 0x0000000000000006
+   x20: 0x000000000000890b  x21: 0x000000016d7ab0e0  x22: 0xf000000000000059  x23: 0xe600000000000000
+   x24: 0x0000524944504d54  x25: 0x0000000000070107  x26: 0x0000000000600007  x27: 0xf000000000000060
+   x28: 0x000000034acaf660   fp: 0x000000016d7a9120   lr: 0x00000001f9cc9810
+    sp: 0x000000016d7a9100   pc: 0x00000002470400cc cpsr: 0x40001000
+   esr: 0x56000080 (Syscall)
+
+
+Binary Images:
+        0x102ce0000 -         0x104283fff Clean-Gallery arm64  <fe05f53e12c73bdd9d6ac4972f5b3109> /var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Clean-Gallery
+        0x104a84000 -         0x104a97fff ADMozaicCollectionViewLayout arm64  <bf869ea714e33fe198efdacc7fe0efdb> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/ADMozaicCollectionViewLayout.framework/ADMozaicCollectionViewLayout
+        0x104ac0000 -         0x104ac7fff UIScrollView_InfiniteScroll arm64  <0775f68bac4e3326813a189ef756a8b8> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/UIScrollView_InfiniteScroll.framework/UIScrollView_InfiniteScroll
+        0x104adc000 -         0x104ae7fff VHGradientView arm64  <fedc3bc1c7003581a4ab64fc01c70568> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/VHGradientView.framework/VHGradientView
+        0x104b04000 -         0x104b0bfff FacebookLogin_-28D52AF5BD2BF5E0_PackageProduct arm64  <d39b703067993bec96939fbd902818ea> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/FacebookLogin_-28D52AF5BD2BF5E0_PackageProduct.framework/FacebookLogin_-28D52AF5BD2BF5E0_PackageProduct
+        0x104b18000 -         0x104b1ffff FacebookShare_-28D4484CC79DB1E6_PackageProduct arm64  <7cb69da351463ec3879250a76cc4f1ea> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/FacebookShare_-28D4484CC79DB1E6_PackageProduct.framework/FacebookShare_-28D4484CC79DB1E6_PackageProduct
+        0x104b2c000 -         0x104b9ffff RxCocoa_38E61CAF42DDE0B6_PackageProduct arm64  <602849fc422538db8d56c39400e16720> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/RxCocoa_38E61CAF42DDE0B6_PackageProduct.framework/RxCocoa_38E61CAF42DDE0B6_PackageProduct
+        0x104ca4000 -         0x104cb7fff Differentiator arm64  <2121eba291583dd79561da3e8a42c434> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/Differentiator.framework/Differentiator
+        0x104d3c000 -         0x104fc7fff AppLovinSDK arm64  <4a5a80f4cf1731a08168adbe27a68e83> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/AppLovinSDK.framework/AppLovinSDK
+        0x1052ac000 -         0x105443fff Lottie arm64  <65095a3824803937b43279f647ece45f> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/Lottie.framework/Lottie
+        0x105704000 -         0x10590bfff AppLovinQualityService arm64  <d567d4a6dd7937fca1145bfe8f5c7b6c> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/AppLovinQualityService.framework/AppLovinQualityService
+        0x105a9c000 -         0x105b47fff RxSwift arm64  <c94d4cee83dd32aea6030ad3d7884c40> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/RxSwift.framework/RxSwift
+        0x105ba8000 -         0x105bcffff PromiseKit_34A278A94EE8AA11_PackageProduct arm64  <ba1fa8561e0b3eee993d4b85f7372f2e> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/PromiseKit_34A278A94EE8AA11_PackageProduct.framework/PromiseKit_34A278A94EE8AA11_PackageProduct
+        0x105bec000 -         0x105c4ffff AdjustSdk arm64  <96f6ccc146183bdb8b587aa06141adcb> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/AdjustSdk.framework/AdjustSdk
+        0x105cb0000 -         0x105d3ffff AdjustSigSdk arm64  <9935e907a20d3d51a1d5befac8886822> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/AdjustSigSdk.framework/AdjustSigSdk
+        0x105d50000 -         0x105d57fff RxRelay arm64  <d29bba597ff73a22ab5d501fe5bd9c29> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/RxRelay.framework/RxRelay
+        0x105d68000 -         0x105debfff CerebroCoreKit_-2C6AF4AEEDCB3D7F_PackageProduct arm64  <2f9e0597a9f537d1b7876b5133d38c71> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/CerebroCoreKit_-2C6AF4AEEDCB3D7F_PackageProduct.framework/CerebroCoreKit_-2C6AF4AEEDCB3D7F_PackageProduct
+        0x105e3c000 -         0x105e77fff WidgetUI arm64  <fcaf781db85d3ee19f09552d80ca66b5> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/WidgetUI.framework/WidgetUI
+        0x105e9c000 -         0x105ebbfff CWNetworkKit_-723357F909649548_PackageProduct arm64  <5207935f49eb30678034ceae1db8cd96> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/CWNetworkKit_-723357F909649548_PackageProduct.framework/CWNetworkKit_-723357F909649548_PackageProduct
+        0x105edc000 -         0x105f13fff SwiftUIIntrospect_2C5EC2718B657AE7_PackageProduct arm64  <600ea94053753995a9fd08c6785f7000> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/SwiftUIIntrospect_2C5EC2718B657AE7_PackageProduct.framework/SwiftUIIntrospect_2C5EC2718B657AE7_PackageProduct
+        0x105f4c000 -         0x105f7ffff SwiftRichString_-1CE52934F08ED9E7_PackageProduct arm64  <f9386359e0fb36f292e02fc7d9f7d82c> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/SwiftRichString_-1CE52934F08ED9E7_PackageProduct.framework/SwiftRichString_-1CE52934F08ED9E7_PackageProduct
+        0x105fa8000 -         0x106eaffff Core arm64  <45e2a094b72934279ccf0eb2c6e116fc> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/Core.framework/Core
+        0x107c0c000 -         0x107f47fff UI arm64  <80c5e7038f5e36358e37961757e6b0f3> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/UI.framework/UI
+        0x1080a0000 -         0x1080a7fff FacebookBasics_-72B781E718BFD883_PackageProduct arm64  <ed23c878d3c03ae4ba93996e1cda5e6a> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/FacebookBasics_-72B781E718BFD883_PackageProduct.framework/FacebookBasics_-72B781E718BFD883_PackageProduct
+        0x1080b8000 -         0x1080bffff NSObject-Rx_3BDCF1CE229B72FA_PackageProduct arm64  <6d50c8f5ad6234b489bb6bc314496f6e> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/NSObject-Rx_3BDCF1CE229B72FA_PackageProduct.framework/NSObject-Rx_3BDCF1CE229B72FA_PackageProduct
+        0x1080d0000 -         0x1080d7fff ThemeHelper arm64  <915de750a93d34d69cc66a6e261f5a81> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/ThemeHelper.framework/ThemeHelper
+        0x1080ec000 -         0x1080fffff RxDataSources_27348A8222EE1835_PackageProduct arm64  <c141b89050cc3a4a9512de73c7ffdcf5> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/RxDataSources_27348A8222EE1835_PackageProduct.framework/RxDataSources_27348A8222EE1835_PackageProduct
+        0x108118000 -         0x10811ffff FacebookCore arm64  <014a666897df3b4487009e8c6be7c775> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/FacebookCore.framework/FacebookCore
+        0x10812c000 -         0x108263fff FBSDKCoreKit arm64  <9f28496682773a5fa96eec844fc20d57> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/FBSDKCoreKit.framework/FBSDKCoreKit
+        0x108490000 -         0x1084cffff FBAEMKit arm64  <22d394a176793da4a39504185458f4aa> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/FBAEMKit.framework/FBAEMKit
+        0x108530000 -         0x108537fff FacebookAEM arm64  <66ebd45b60853b8aa95e0f5e1153ea59> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/FacebookAEM.framework/FacebookAEM
+        0x108544000 -         0x108553fff FBSDKCoreKit_Basics arm64  <0785efe8ccf6323799654b5e3e1bfdda> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/FBSDKCoreKit_Basics.framework/FBSDKCoreKit_Basics
+        0x10856c000 -         0x1085c3fff FBSDKLoginKit arm64  <a48b53964c78341cb31edd20f2ee2fe8> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/FBSDKLoginKit.framework/FBSDKLoginKit
+        0x108660000 -         0x1086a7fff FBSDKShareKit arm64  <c8593c3e0eb538b18a7e67b200eec188> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/FBSDKShareKit.framework/FBSDKShareKit
+        0x108734000 -         0x10874ffff SwiftyRSA arm64  <6df0415958fc34dc8a99115d0b604b44> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/SwiftyRSA.framework/SwiftyRSA
+        0x108768000 -         0x10878bfff Moya_64575493A_PackageProduct arm64  <d954ff7feaa03958802c9b06ef3f5ee5> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/Moya_64575493A_PackageProduct.framework/Moya_64575493A_PackageProduct
+        0x1087ac000 -         0x1088affff Alamofire_-213FC01918BCE467_PackageProduct arm64  <6f3636ec972c381db4d13275de2817bd> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/Alamofire_-213FC01918BCE467_PackageProduct.framework/Alamofire_-213FC01918BCE467_PackageProduct
+        0x108920000 -         0x108af3fff SmartlookAnalytics arm64  <6d36e217d12e3f73bd5e276900f740eb> /private/var/containers/Bundle/Application/0FDD4671-5702-4785-BED6-F03B92966AF9/Clean-Gallery.app/Frameworks/SmartlookAnalytics.framework/SmartlookAnalytics
+        0x109474000 -         0x10947ffff libobjc-trampolines.dylib arm64e  <3f2a8bfdcd6c3784b0ce8813d842bbbd> /private/preboot/Cryptexes/OS/usr/lib/libobjc-trampolines.dylib
+        0x19be84000 -         0x19bed5adf libobjc.A.dylib arm64e  <677d64df97cd3525a709c4c0ad1a0c69> /usr/lib/libobjc.A.dylib
+        0x19bf06000 -         0x19bfa4ac7 dyld arm64e  <9dc3471211aa3b1dafe001b95a6e40d3> /usr/lib/dyld
+        0x19bfa5000 -         0x19bfbf6c7 libc++abi.dylib arm64e  <7fae731b4b7e390daf762a34206a40cf> /usr/lib/libc++abi.dylib
+        0x19bfc0000 -         0x19c548f7f libswiftCore.dylib arm64e  <9aa3ad33d1183b00a2ec6099c4cb8843> /usr/lib/swift/libswiftCore.dylib
+        0x19c549000 -         0x19d37927f Foundation arm64e  <0555af5420753f2dbc40733e55eee95a> /System/Library/Frameworks/Foundation.framework/Foundation
+        0x19d404000 -         0x19d65da3f CoreServices arm64e  <0fff723a7de63705b327add82faef345> /System/Library/Frameworks/CoreServices.framework/CoreServices
+        0x19d808000 -         0x19ec3051f Network arm64e  <5320c128054234b18ef22c71fe2ef6ed> /System/Library/Frameworks/Network.framework/Network
+        0x19ee75000 -         0x19f3ffc3f CoreFoundation arm64e  <973e47e588f03367b9d446d5cb999b75> /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+        0x19fc27000 -         0x1a0355cbf CoreGraphics arm64e  <35694ce100f53e75931e3f3c9fa738e5> /System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+        0x1a13bc000 -         0x1a1747d3f CoreData arm64e  <0b782824510d3b74b5026f191d215166> /System/Library/Frameworks/CoreData.framework/CoreData
+        0x1a1bab000 -         0x1a205359f ImageIO arm64e  <c18491e5fd243b8396c3b8421d05c760> /System/Library/Frameworks/ImageIO.framework/ImageIO
+        0x1a4763000 -         0x1a6b0a73f UIKitCore arm64e  <c98eab32b2733430b0c546522c904cbb> /System/Library/PrivateFrameworks/UIKitCore.framework/UIKitCore
+        0x1aa479000 -         0x1aa4f956f libsystem_c.dylib arm64e  <45ef0c602b4d33cf85a2551531a2e3d8> /usr/lib/system/libsystem_c.dylib
+        0x1ab4dc000 -         0x1ab9fe81f VideoToolbox arm64e  <8f3339f1b106331f98d94ca9db5e3fe4> /System/Library/Frameworks/VideoToolbox.framework/VideoToolbox
+        0x1b29b2000 -         0x1b2b9d03f CoreMedia arm64e  <aff2f92969593df78ab6536e53358faf> /System/Library/Frameworks/CoreMedia.framework/CoreMedia
+        0x1b2c6c000 -         0x1b2cb5d9f libxpc.dylib arm64e  <74a41d83975236118a0977f9b964254e> /usr/lib/system/libxpc.dylib
+        0x1b357e000 -         0x1b393365f CFNetwork arm64e  <de57ec0c543139e28796a73536709966> /System/Library/Frameworks/CFNetwork.framework/CFNetwork
+        0x1b3934000 -         0x1b542ec1f JavaScriptCore arm64e  <96a0a9b4733a3bcb81cc8f8247960d68> /System/Library/Frameworks/JavaScriptCore.framework/JavaScriptCore
+        0x1b6d56000 -         0x1b71abd9f CoreMotion arm64e  <972569b528ca3e2795a558140147d197> /System/Library/Frameworks/CoreMotion.framework/CoreMotion
+        0x1b783e000 -         0x1b816ffdf PhotoLibraryServices arm64e  <1d8764193fbe33d597624e68f0829a0d> /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
+        0x1b8170000 -         0x1b853441f Photos arm64e  <c06282126d2636738208dde3b011c312> /System/Library/Frameworks/Photos.framework/Photos
+        0x1b8a1a000 -         0x1b8a81a7f CoreVideo arm64e  <f8f2401875c139a2adf17adac318e10e> /System/Library/Frameworks/CoreVideo.framework/CoreVideo
+        0x1b8e2b000 -         0x1ba3d2fdf WebKit arm64e  <ecba587cb05b32b198d663eac27b13ab> /System/Library/Frameworks/WebKit.framework/WebKit
+        0x1c1164000 -         0x1c134aebf CMPhoto arm64e  <925a63f08f9c36f987f8849b462c633b> /System/Library/PrivateFrameworks/CMPhoto.framework/CMPhoto
+        0x1c6147000 -         0x1c626971f PhotoLibraryServicesCore arm64e  <8b2037c666d23891ba2c3d0249133bfd> /System/Library/PrivateFrameworks/PhotoLibraryServicesCore.framework/PhotoLibraryServicesCore
+        0x1cb6a8000 -         0x1cb6c493f IOSurface arm64e  <408cf853cf273fd3af9e094cc605f966> /System/Library/Frameworks/IOSurface.framework/IOSurface
+        0x1d6849000 -         0x1d688f25f libdispatch.dylib arm64e  <d34ac6a910dc35359944e3efc5994788> /usr/lib/system/libdispatch.dylib
+        0x1db514000 -         0x1db54619f ANEServices arm64e  <4e83e78b813c3320805cbacf0ce4800e> /System/Library/PrivateFrameworks/ANEServices.framework/ANEServices
+        0x1f9cc2000 -         0x1f9cce44f libsystem_pthread.dylib arm64e  <ee8d950328ad35508a10ffa752f91f9f> /usr/lib/system/libsystem_pthread.dylib
+        0x23e281000 -         0x23e2897ff GraphicsServices arm64e  <4eb73f50cdf2316194c00f3e7002b67c> /System/Library/PrivateFrameworks/GraphicsServices.framework/GraphicsServices
+        0x247035000 -         0x24706fcfb libsystem_kernel.dylib arm64e  <1daee906c3853b1083740fb0096755e0> /usr/lib/system/libsystem_kernel.dylib
+        0x2b2be2000 -         0x2b2be9e4b libsystem_platform.dylib arm64e  <50ec355daf2a3299a41a2679aa35643f> /usr/lib/system/libsystem_platform.dylib
+
+EOF

@@ -1,0 +1,425 @@
+<div align="center">
+
+# xcrashlytics
+
+**Firebase Crashlytics from the terminal, with clean JSON for developers and AI agents.**
+
+[![CI](https://github.com/firattamurcw/xcrashlytics/actions/workflows/ci.yml/badge.svg)](https://github.com/firattamurcw/xcrashlytics/actions/workflows/ci.yml)
+[![Swift 6.0](https://img.shields.io/badge/Swift-6.0-F05138.svg?logo=swift&logoColor=white)](https://swift.org)
+[![Platform](https://img.shields.io/badge/platform-macOS%2015%2B-lightgrey.svg)](https://www.apple.com/macos/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENCE)
+
+</div>
+
+`xcrashlytics` is a macOS CLI for inspecting Firebase Crashlytics issues, events, stacks, and hot files without opening the Firebase console.
+
+It is built for:
+
+- Developers who want fast, readable crash output in the terminal.
+- AI coding agents that need stable JSON while investigating bugs.
+
+Firebase commands work for iOS, Android, macOS, and other Firebase Crashlytics apps. iOS projects can also include the Xcode Organizer's local crash reports (App Store / TestFlight `.crash` logs, already symbolicated) for grouping against Firebase issues.
+
+<details>
+<summary><strong>📖 Table of contents</strong></summary>
+
+- [Install](#install)
+- [Authentication](#authentication)
+- [Setup](#setup)
+- [Quickstart](#quickstart)
+- [Agent Usage](#agent-usage)
+- [Commands](#commands) — [`issues`](#issues) · [`events`](#events) · [`show`](#show) · [`blame`](#blame) · [`groups`](#groups) · [`open`](#open)
+- [Platform Notes](#platform-notes)
+- [Privacy](#privacy)
+- [Stability](#stability)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [Trademark](#trademark)
+- [License](#license)
+
+</details>
+
+## Install
+
+```bash
+brew tap firattamurcw/xcrashlytics https://github.com/firattamurcw/xcrashlytics
+brew install xcrashlytics
+```
+
+> [!NOTE]
+> If you have `HOMEBREW_REQUIRE_TAP_TRUST` set, Homebrew will refuse to load the
+> formula until you trust this tap. Run `brew trust firattamurcw/xcrashlytics`
+> once, then `brew install xcrashlytics`.
+
+From source:
+
+```bash
+git clone https://github.com/firattamurcw/xcrashlytics.git
+cd xcrashlytics
+swift build -c release
+```
+
+Prebuilt binaries are available on [GitHub releases](https://github.com/firattamurcw/xcrashlytics/releases).
+
+> [!NOTE]
+> Binaries are not code-signed or notarized. Homebrew is the supported install path and runs without Gatekeeper friction[^gatekeeper]. If you download a binary directly from the releases page in a browser, clear the quarantine flag once: `xattr -dr com.apple.quarantine ./xcrashlytics`.
+
+## Authentication
+
+`xcrashlytics` uses your existing Firebase CLI login.
+
+```bash
+npm install -g firebase-tools
+firebase login
+```
+
+> [!TIP]
+> The tool reuses the token stored by `firebase-tools`. It does not require `gcloud`, a custom OAuth app, or a backend service.
+
+## Setup
+
+Run this inside your app repository, naming the environment profile:
+
+```bash
+xcrashlytics init --app-id 1:1234567890:ios:abcdef --profile release --bundle-id com.example.app
+```
+
+For Android:
+
+```bash
+xcrashlytics init --app-id 1:1234567890:android:abcdef --profile release
+```
+
+This writes `.xcrashlytics.json` and activates the profile:
+
+```json
+{
+  "activeProfile": "release",
+  "profiles": {
+    "release": { "appId": "1:1234567890:ios:abcdef", "bundleId": "com.example.app" }
+  }
+}
+```
+
+Commands read this config from the current directory, so run them from the repo root.
+
+> [!TIP]
+> The file holds Firebase app ids only — no secrets — so commit it and the whole
+> team (and CI) shares the setup. Authentication stays in `firebase login`.
+
+Add more environments by running `init` again with a different profile, then switch between them:
+
+```bash
+xcrashlytics init --app-id 1:1234567890:ios:staging --profile staging
+xcrashlytics use staging
+```
+
+`use <name>` scans the project for a matching `GoogleService-Info.plist` or `google-services.json` when the profile isn't already in the config.
+
+## Quickstart
+
+Firebase-only flow:
+
+```bash
+xcrashlytics issues --limit 20
+xcrashlytics issues "checkout" --format json
+xcrashlytics show FB-ISSUE_ID --format json
+xcrashlytics events FB-ISSUE_ID --latest --app-frames-only --format json
+xcrashlytics blame --top 20 --since 7d --format json
+```
+
+iOS with local Xcode crashes:
+
+```bash
+xcrashlytics issues --xcode --limit 20
+xcrashlytics groups --xcode --format text
+xcrashlytics issues "blur detection" --xcode --format json
+```
+
+> [!IMPORTANT]
+> Local Xcode crashes come from the Xcode Organizer's store at
+> `~/Library/Developer/Xcode/Products/<bundle-id>/Crashes/`. Xcode downloads
+> App Store and TestFlight crash reports into it when you open the Organizer
+> (<kbd>Window</kbd> → <kbd>Organizer</kbd> → <kbd>Crashes</kbd>) — the tool only reads those local files and
+> never talks to Apple. Open the Organizer once after a release so fresh
+> crashes are on disk, and set the profile's bundle id with
+> `init --bundle-id` — every Xcode crash command (`issues --xcode`, `groups --xcode`,
+> `show XC-…`, `open XC-…`) refuses to run without one, unless you pass an explicit
+> `--crash-directory`.
+
+JSON output is suitable for scripts and agent calls:
+
+```bash
+xcrashlytics issues "blur" --format json
+```
+
+## Agent Usage
+
+See [AGENTS.md](./AGENTS.md) for the full agent contract: error codes, exit codes, and JSON stability guarantees.
+
+Recommended investigation loop:
+
+```bash
+xcrashlytics issues "<feature-or-error>" --format json
+xcrashlytics issues --user-id USER_ID --events-per-issue 10 --format json
+xcrashlytics events FB-ISSUE_ID --latest --app-frames-only --format json
+xcrashlytics events FB-ISSUE_ID --user-id USER_ID --format json
+xcrashlytics blame --since 7d --top 20 --format json
+```
+
+> [!WARNING]
+> Use JSON or NDJSON[^ndjson]. Do not scrape text output — only the structured formats are stability-guaranteed.
+
+## Commands
+
+### `issues`
+
+List and search Firebase Crashlytics issues.
+
+```bash
+xcrashlytics issues --limit 20
+xcrashlytics issues "blur detection" --limit 20
+xcrashlytics issues "blur detection" --search-limit 500 --format json
+xcrashlytics issues --match BlurDetectionService --type EXC_BAD_ACCESS --min-events 10
+xcrashlytics issues --app-version 6.16.0
+xcrashlytics issues --since-version 6.16.0
+xcrashlytics issues --file BlurDetectionService.swift
+xcrashlytics issues --symbol 'BlurDetectionService.classifyWithML(_:)'
+xcrashlytics issues --since 24h --format json
+xcrashlytics issues --domain com.metrickit.diagnostics.cpu
+xcrashlytics issues --user-info-key reason="cpu spike"
+xcrashlytics issues --user-id USER_ID --events-per-issue 10 --format json
+xcrashlytics issues --since 7d --by-day --format json
+xcrashlytics issues "com.metrickit.diagnostics.cpu" --format json
+xcrashlytics issues "blur" --format ndjson
+xcrashlytics issues --xcode --format json
+xcrashlytics issues "blur detection" --show-pairs --format json
+```
+
+Text output is compact:
+
+```text
+FB-I1   EXC_BAD_ACCESS   v6.16.0   Crash in Checkout   42 events / 12 users
+```
+
+<details>
+<summary>JSON output is agent-readable — <em>click to expand</em></summary>
+
+```json
+{
+  "query": "blur detection",
+  "limit": 20,
+  "searchLimit": 200,
+  "fetchedIssuesCount": 200,
+  "matchedIssuesCount": 2,
+  "relatedGroups": [
+    {
+      "issueIds": ["FB-I1", "FB-I7"],
+      "reason": "same crash signature"
+    }
+  ],
+  "issues": [
+    {
+      "id": "FB-I1",
+      "firebaseIssueId": "I1",
+      "title": "[Core] BlurDetectionService.swift - BlurDetectionService.classifyWithML(_:)",
+      "exceptionType": "EXC_BAD_ACCESS",
+      "file": "BlurDetectionService.swift",
+      "topAppSymbol": "BlurDetectionService.classifyWithML(_:)",
+      "appVersion": "6.16.0",
+      "eventsCount": 42,
+      "impactedUsersCount": 12
+    }
+  ]
+}
+```
+
+</details>
+
+Search behavior:
+
+- Bare `issues` fetches and displays `--limit` issues.
+- Queries and filters fetch a wider search window by default, then display the first `--limit` matches.
+- Reverse-DNS-like queries such as `com.metrickit.diagnostics.cpu` search latest event metadata when issue fields do not match.
+- `--domain` and `--user-info-key key` or `--user-info-key key=value` filter latest event metadata.
+- `--user-id USER_ID` accepts the raw Firebase user id and filters sampled events. Increase `--events-per-issue` for a deeper issue search.
+- `--by-day` adds per-issue daily event counts for displayed issues.
+- `--format ndjson` emits one compact issue JSON object per line (also supported by `events` and `blame`).
+- `--search-limit N` controls how many Firebase issues are fetched before filtering.
+- `--all` searches up to 2000 Firebase issues.
+- Empty JSON search results include a `hint` when the fetched window may be too small, and do not suggest widening after all fetched issues are exhausted.
+- `relatedGroups` gives compact same-signature hints. Full candidate pairs are included only with `--show-pairs`.
+- When `--xcode` is enabled and local crashes look unsymbolicated, JSON output includes a `symbolicationHint`.
+- `--crash-directory <path>` (repeatable) scans explicit Xcode crash directories instead of the bundle-id default, and needs no bundle id.
+
+### `events`
+
+List Firebase sample events and frames for one or more issues.
+
+```bash
+xcrashlytics events FB-I1 --limit 10
+xcrashlytics events FB-I1 --format json
+xcrashlytics events FB-I1,FB-I2 --latest --frames-only --format json
+xcrashlytics events --issues FB-I1,FB-I2 --latest --app-frames-only --format json
+xcrashlytics events FB-I1 --crashing-thread-only --format json
+xcrashlytics events FB-I1 --no-system-frames --format json
+xcrashlytics events FB-I1 --user-id USER_ID --format json
+xcrashlytics events FB-I1 --format ndjson
+```
+
+Event JSON includes app version/build, device model, OS version, event time, memory/storage when Firebase provides it, hashed user id, and frames.
+
+Frame filter flags imply `--frames-only`:
+
+- `--app-frames-only`
+- `--no-system-frames`
+- `--crashing-thread-only`
+
+This keeps agent stack payloads small and avoids system-frame noise.
+
+### `show`
+
+Show one crash or Firebase event.
+
+```bash
+xcrashlytics show FB-I1
+xcrashlytics show FB-I1 --format json
+xcrashlytics show FB-I1/events/E1 --format json
+xcrashlytics show XC-AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE
+```
+
+Firebase issue ids include issue detail plus latest event frames when available. Firebase event ids show that event's frames. Xcode ids read the Organizer's local `.crash` reports.
+
+For Firebase ids, the same frame filters as `events` trim the displayed frames: `--app-frames-only`, `--no-system-frames`, `--crashing-thread-only`.
+
+### `blame`
+
+Aggregate top blamed Firebase files and symbols across recent sampled events.
+
+```bash
+xcrashlytics blame --top 20 --since 7d --format json
+xcrashlytics blame --issue-limit 100 --events-per-issue 5 --concurrency 6
+xcrashlytics blame --top 20 --since 7d --format ndjson
+```
+
+<details>
+<summary>Example JSON — <em>click to expand</em></summary>
+
+```json
+{
+  "items": [
+    {
+      "file": "BlurDetectionService.swift",
+      "line": 42,
+      "symbol": "BlurDetectionService.classifyWithML(_:)",
+      "eventCount": 12,
+      "users": 5,
+      "exampleIssueId": "FB-I1",
+      "exampleEventId": "FB-I1/events/E1",
+      "topIssueIds": ["FB-I1", "FB-I7"]
+    }
+  ]
+}
+```
+
+</details>
+
+Defaults are tuned for quick agent loops:
+
+- `--issue-limit 30`
+- `--events-per-issue 1`
+- `--concurrency 6`
+
+Increase those values only when you need a deeper scan.
+
+### `groups`
+
+Group related Firebase issues and optional local Xcode crashes.
+
+```bash
+xcrashlytics groups --format text
+xcrashlytics groups --firebase-limit 100 --format json
+xcrashlytics groups --issue FB-I1 --format json
+xcrashlytics groups --xcode --format json
+xcrashlytics groups --limit 10 --format json
+```
+
+Firebase-only projects group Firebase issues with other Firebase issues. iOS projects can add `--xcode` to include local crash reports. `--limit N` caps the number of groups shown, and `--crash-directory <path>` (repeatable) scans explicit Xcode crash directories without a bundle id.
+
+### `open`
+
+Open the source of a crash in Xcode.
+
+```bash
+xcrashlytics open FB-I1
+xcrashlytics open FB-I1/events/E1
+xcrashlytics open XC-AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE
+```
+
+Both id kinds open the crashing source line in Xcode via `xed`. Crash frames carry file names only, so run from the app's repo root — the file is resolved inside the current directory, and ambiguous or missing files are an error rather than a guess. Xcode ids fall back to opening the raw report when no source location is available.
+
+## Platform Notes
+
+Android projects use Firebase commands directly. There is no Android Studio local crash source in the core design.
+
+iOS projects can combine Firebase with local Xcode crash reports through `issues --xcode` and `groups --xcode`. The local reports are the ones the Xcode Organizer has already downloaded — the tool reads them from disk and has no connection to Apple's crash service.
+
+## Privacy
+
+> [!CAUTION]
+> Crash reports may contain sensitive data.
+
+- Raw Firebase user ids are not emitted in normal output.
+- Raw Firebase user ids can be passed as filter input with `--user-id`.
+- User ids are hashed when included.
+- Raw Firebase payloads are not printed by default.
+- Saved snapshots are not required for normal use.
+
+## Stability
+
+From the next release, JSON output fields are only added, never renamed or removed. Error codes and exit codes are stable.
+
+> [!WARNING]
+> The tool talks to Google's `v1alpha`[^v1alpha] Crashlytics API, which is unversioned and undocumented — if Google changes it, commands may break until a new release adapts.
+
+## Configuration
+
+Top-level keys in `.xcrashlytics.json`:
+
+| Key | Meaning |
+| --- | --- |
+| `appId` | Firebase app id (`GOOGLE_APP_ID`). Android and iOS app ids both work. |
+| `activeProfile` | Optional active profile name selected by `xcrashlytics use <profile>`. |
+| `profiles` | Named Firebase app profiles, discovered from plist/json files or added by `init --profile`. |
+
+Each entry under `profiles` holds:
+
+| Key | Meaning |
+| --- | --- |
+| `appId` | Firebase app id for that environment/platform. |
+| `bundleId` | App bundle id. Scopes Xcode Organizer crash scanning to `~/Library/Developer/Xcode/Products/<bundleId>`. iOS-only; optional. |
+| `sourcePath` | Optional path the profile was discovered from, e.g. `Staging/GoogleService-Info.plist` or `app/google-services.json`. |
+
+> [!TIP]
+> Set `bundleId` with `init --bundle-id` (or let `use <profile>` find it from a `GoogleService-Info.plist` / `google-services.json`). Every `--xcode` command needs it unless you pass `--crash-directory`.
+
+## Contributing
+
+Contributions are welcome. Useful issues and PRs include:
+
+- the command you ran
+- the output you expected
+- whether the output is for humans, agents, or both
+- why the Firebase console or a one-off script was not enough
+
+## Trademark
+
+Firebase and Crashlytics are trademarks of Google LLC. This project is not affiliated with, endorsed by, or sponsored by Google.
+
+## License
+
+MIT. See [LICENCE](./LICENCE).
+
+[^gatekeeper]: macOS quarantines files downloaded via a browser and blocks unsigned ones on first run. Homebrew *formula* installs are exempt — they aren't quarantined — so an unsigned CLI runs fine.
+[^ndjson]: Newline-delimited JSON — one compact JSON object per line. Streams well and is trivial to parse line-by-line in scripts and agents.
+[^v1alpha]: An early, pre-stable Google API tier. It carries no compatibility guarantee and can change without notice.
